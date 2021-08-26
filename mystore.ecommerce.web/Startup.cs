@@ -21,19 +21,20 @@ namespace mystore.ecommerce.web
 {
     public class Startup
     {
-        public IConfiguration _config { get; }
+        public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
-            _config = configuration;
+            Configuration = configuration;
         }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            
-            services.AddDbContext<EcommerceDbContext>(cfg =>
+
+            services.AddDbContext<EcommerceDbContext>(options =>
             {
-                cfg.UseSqlServer(_config.GetConnectionString("DefaultConnection"),b=>b.MigrationsAssembly(typeof(EcommerceDbContext).Assembly.FullName));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+                    assembly => assembly.MigrationsAssembly(typeof(EcommerceDbContext).Assembly.FullName));
             });
 
             services.AddScoped<IOrderRepository, OrderRepository>();
@@ -64,8 +65,13 @@ namespace mystore.ecommerce.web
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllerRoute("Default", "/{controller}/{action}/{id?}",
-                    new {controller = "App", action = "Index" });
+                    new { controller = "App", action = "Index" });
             });
         }
+
+
     }
+
+
+
 }
