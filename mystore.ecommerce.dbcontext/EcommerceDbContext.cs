@@ -11,12 +11,13 @@ namespace mystore.ecommerce.dbcontext
 {
     public partial class EcommerceDbContext : DbContext
     {
-        private readonly IConfiguration _configuration;
-
-        public EcommerceDbContext(IConfiguration configuration)
-         
+        public EcommerceDbContext()
         {
-            _configuration = configuration;
+
+        }
+        public EcommerceDbContext(DbContextOptions<EcommerceDbContext> options)
+         :base(options)
+        {
         }
 
 
@@ -25,10 +26,12 @@ namespace mystore.ecommerce.dbcontext
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
-            base.OnConfiguring(dbContextOptionsBuilder);
-
-            dbContextOptionsBuilder.UseSqlServer(_configuration["ConnectionStrings:DefaultConnection"]);
+            base.OnConfiguring(dbContextOptionsBuilder);            
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
     }
 }

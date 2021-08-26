@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 
 namespace mystore.ecommerce.dbcontext.Models
 {
