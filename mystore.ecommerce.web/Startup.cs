@@ -33,7 +33,7 @@ namespace mystore.ecommerce.web
             
             services.AddDbContext<EcommerceDbContext>(cfg =>
             {
-                cfg.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
+                cfg.UseSqlServer(_config.GetConnectionString("DefaultConnection"),b=>b.MigrationsAssembly(typeof(EcommerceDbContext).Assembly.FullName));
             });
 
             services.AddScoped<IOrderRepository, OrderRepository>();

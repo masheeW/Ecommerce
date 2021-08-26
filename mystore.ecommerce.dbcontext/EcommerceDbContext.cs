@@ -9,7 +9,7 @@ using mystore.ecommerce.dbcontext.Models;
 
 namespace mystore.ecommerce.dbcontext
 {
-    public partial class EcommerceDbContext : DbContext
+    public class EcommerceDbContext : DbContext
     {
         public EcommerceDbContext()
         {
@@ -26,7 +26,10 @@ namespace mystore.ecommerce.dbcontext
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
-            base.OnConfiguring(dbContextOptionsBuilder);            
+            dbContextOptionsBuilder.UseSqlServer("Data Source=localhost\\SQLEXPRESS;Initial Catalog=EcommerceDB;Integrated Security=True;Connect Timeout=30;MultipleActiveResultSets=true");
+
+            base.OnConfiguring(dbContextOptionsBuilder);   
+            
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
