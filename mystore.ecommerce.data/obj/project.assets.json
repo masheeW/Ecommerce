@@ -5843,11 +5843,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\source\\repos\\mystore.ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj",
       "projectName": "mystore.ecommerce.data",
-      "projectPath": "C:\\Users\\HP\\source\\repos\\mystore.ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj",
+      "projectPath": "C:\\Users\\HP\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\source\\repos\\mystore.ecommerce\\mystore.ecommerce.data\\obj\\",
+      "outputPath": "C:\\Users\\HP\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5864,8 +5864,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\HP\\source\\repos\\mystore.ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj": {
-              "projectPath": "C:\\Users\\HP\\source\\repos\\mystore.ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj"
+            "C:\\Users\\HP\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj": {
+              "projectPath": "C:\\Users\\HP\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj"
             }
           }
         }

@@ -746,11 +746,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\source\\repos\\mystore.ecommerce\\mystore.ecommerce.dbcontext.identity\\mystore.ecommerce.dbcontext.identity.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext.identity\\mystore.ecommerce.dbcontext.identity.csproj",
       "projectName": "mystore.ecommerce.dbcontext.identity",
-      "projectPath": "C:\\Users\\HP\\source\\repos\\mystore.ecommerce\\mystore.ecommerce.dbcontext.identity\\mystore.ecommerce.dbcontext.identity.csproj",
+      "projectPath": "C:\\Users\\HP\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext.identity\\mystore.ecommerce.dbcontext.identity.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\source\\repos\\mystore.ecommerce\\mystore.ecommerce.dbcontext.identity\\obj\\",
+      "outputPath": "C:\\Users\\HP\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext.identity\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WQqu0EOREKLjww6zAUe2/xHrHz6Ez6FGBjV4XhEw/JPxcusP2tR5VOmiu2Iz6MCRsoaHNzfUDiKPNDrYsa0iVw==",
+  "dgSpecHash": "yVL6txWEqqD84AGnqWqHw3CB37CT9nnZTlSJUp5uvfod4dbDvmOVRW5i7bk0sCl2hqRlKXPbbHrcaCWVFAwrFw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\source\\repos\\mystore.ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj",
+  "projectFilePath": "C:\\Users\\HP\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
