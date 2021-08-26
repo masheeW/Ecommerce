@@ -11,6 +11,7 @@ using mystore.ecommerce.contracts.Repositories;
 using mystore.ecommerce.data;
 using mystore.ecommerce.data.Repositories;
 using mystore.ecommerce.dbcontext;
+using mystore.ecommerce.dbcontext.identity;
 using mystore.ecommerce.entities.User;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,12 @@ namespace mystore.ecommerce.web
             
             services.AddDbContext<EcommerceDbContext>(cfg =>
             {
-                cfg.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
+                cfg.UseSqlServer();
+            });
+
+            services.AddDbContext<StoreIdentityDbContext>(cfg =>
+            {
+                cfg.UseSqlServer();
             });
 
             services.AddScoped<IOrderRepository, OrderRepository>();
