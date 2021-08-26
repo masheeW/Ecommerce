@@ -1,17 +1,17 @@
-using AutoMapper.Configuration;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using mystore.ecommerce.contracts.Repositories;
 using mystore.ecommerce.data;
 using mystore.ecommerce.data.Repositories;
 using mystore.ecommerce.dbcontext;
-using mystore.ecommerce.dbcontext.identity;
-using mystore.ecommerce.dbcontext.identity.Models;
+using mystore.ecommerce.entities.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +21,7 @@ namespace mystore.ecommerce.web
 {
     public class Startup
     {
-        private readonly IConfiguration _config;
+        public IConfiguration _config { get; }
         public Startup(IConfiguration configuration)
         {
             _config = configuration;
@@ -30,17 +30,10 @@ namespace mystore.ecommerce.web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentity<ShopUser, IdentityRole>(cfg =>
-            {
-                cfg.User.RequireUniqueEmail = true;
-            }).AddEntityFrameworkStores<StoreIdentityDbContext>();
-            services.AddDbContext<StoreIdentityDbContext>(cfg =>
-            {
-                cfg.UseSqlServer();
-            });
+            
             services.AddDbContext<EcommerceDbContext>(cfg =>
             {
-                cfg.UseSqlServer();
+                cfg.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
             });
 
             services.AddScoped<IOrderRepository, OrderRepository>();
