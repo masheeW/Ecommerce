@@ -2,14 +2,12 @@
 using Microsoft.Extensions.Configuration;
 using mystore.ecommerce.dbcontext.Models;
 
-#nullable disable
 
 namespace mystore.ecommerce.dbcontext
 {
     public partial class EcommerceDbContext : DbContext
     {
-        public EcommerceDbContext(DbContextOptions<EcommerceDbContext> options)
-: base(options)
+        public EcommerceDbContext(DbContextOptions<EcommerceDbContext> options): base(options)
         {
 
         }
