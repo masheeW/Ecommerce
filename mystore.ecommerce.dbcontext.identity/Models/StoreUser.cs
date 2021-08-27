@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace mystore.ecommerce.dbcontext.identity.Models
 {
-    public class ShopUser : IdentityUser
+    public class StoreUser : IdentityUser
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

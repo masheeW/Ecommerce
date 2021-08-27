@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace mystore.ecommerce.dbcontext.identity
 {
-    public class StoreIdentityDbContext : IdentityDbContext<ShopUser>
+    public class StoreIdentityDbContext : IdentityDbContext<StoreUser>
     {
         public StoreIdentityDbContext(DbContextOptions<StoreIdentityDbContext> options)
             : base(options)
