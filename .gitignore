@@ -170,5 +170,5 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
-/Source/EduXBee/packages
-/Source/EduXBee/.vs
+packages
+.vs
