@@ -15,6 +15,10 @@
       {
          "HasPrimaryKey": true,
          "Name": "[dbo].[Order]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Product]"
       }
    ],
    "UseDatabaseNames": true,

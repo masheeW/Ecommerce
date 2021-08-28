@@ -38,8 +38,9 @@ namespace mystore.ecommerce.api.Controllers
             try
             {
                 var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
-                var results = _orderRepository.GetAllOrdersByUser(currentUser.UserName);
-                return Ok(_orderRepository.GetAllOrders());
+                var results = _orderRepository.GetAllOrdersByUser(currentUser.Id);
+                
+                return Ok(results);
                 
             }
             catch(Exception ex)
@@ -50,7 +51,7 @@ namespace mystore.ecommerce.api.Controllers
         }
 
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{id}")]
         public IActionResult Get(string Id)
         {
             try
@@ -89,8 +90,8 @@ namespace mystore.ecommerce.api.Controllers
                     //    OrderDate = model.OrderDate,
                     //    OrderNumber = model.OrderNumber
                     //};
-                    var currentUser = _userManager.FindByNameAsync(User.Identity.Name);
-                    newOrder.Customer = currentUser.Result.UserName;
+                    var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
+                    newOrder.Customer = currentUser.Id;
                     var order = _orderRepository.AddOrder(newOrder);
                     //map back to model
                     return Created($"/api/orders/{order.Id}", _mapper.Map<dbcontext.Models.Order,OrderDetail>(order)); //use model instead Order

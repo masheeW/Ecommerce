@@ -6,6 +6,14 @@
 
   <ItemGroup>
     <Content Remove="Pages\Error.cshtml" />
+    <Content Remove="wwwroot\ts\main.ts" />
+    <Content Remove="wwwroot\ts\shopper.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="client\src\app\services\store.service.ts" />
+    <None Remove="client\src\app\shared\Product.ts" />
+    <None Remove="client\src\app\views\productListView.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +48,14 @@
     <ProjectReference Include="..\mystore.ecommerce.data\mystore.ecommerce.data.csproj" />
     <ProjectReference Include="..\mystore.ecommerce.dbcontext\mystore.ecommerce.dbcontext.csproj" />
     <ProjectReference Include="..\mystore.ecommerce.entities\mystore.ecommerce.entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="client\src\app\services\store.service.ts" />
+    <TypeScriptCompile Include="client\src\app\shared\Product.ts" />
+    <TypeScriptCompile Include="client\src\app\views\productListView.component.ts" />
+    <TypeScriptCompile Include="wwwroot\ts\main.ts" />
+    <TypeScriptCompile Include="wwwroot\ts\shopper.ts" />
   </ItemGroup>
 
 </Project>

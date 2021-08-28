@@ -75,6 +75,19 @@ namespace mystore.ecommerce.api
                 });
 
             services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Policy1",
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:44366/")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                    });
+            });
+
             services.AddMvc();
             //services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IOrderRepository, OrderRepository>();
@@ -100,7 +113,7 @@ namespace mystore.ecommerce.api
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors();
             app.UseAuthentication();
             app.UseAuthorization();
 

@@ -1,4 +1,5 @@
 
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using mystore.ecommerce.contracts.Repositories;
+using mystore.ecommerce.data.Mappers;
 using mystore.ecommerce.data.Repositories;
 using mystore.ecommerce.dbcontext;
 using mystore.ecommerce.dbcontext.Models;
@@ -42,11 +44,21 @@ namespace mystore.ecommerce.web
                     assembly => assembly.MigrationsAssembly(typeof(EcommerceIdentityContext).Assembly.FullName));
             });
 
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
             services.AddAuthentication()
                 .AddCookie()
                 .AddJwtBearer();
          
             services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+
             services.AddMvc();
             services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation();

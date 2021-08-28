@@ -2,8 +2,9 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using mystore.ecommerce.dbcontext.Models;
 
-namespace mystore.ecommerce.dbcontext.Models
+namespace mystore.ecommerce.dbcontext
 {
     public partial class EcommercedbContext : DbContext
     {
@@ -17,12 +18,10 @@ namespace mystore.ecommerce.dbcontext.Models
         }
 
         public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //base.OnModelCreating(builder);
-            //modelBuilder.ApplyConfigurationsFromAssembly(typeof(EcommerceDbContext).Assembly);
-
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.Property(e => e.Id).HasMaxLength(50);
@@ -54,10 +53,36 @@ namespace mystore.ecommerce.dbcontext.Models
                 entity.Property(e => e.UpdatedBy).HasMaxLength(128);
             });
 
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.Property(e => e.Id).HasMaxLength(50);
+
+                entity.Property(e => e.Category)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.CreatedBy)
+                    .IsRequired()
+                    .HasMaxLength(128);
+
+                entity.Property(e => e.CreatedDate).HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.ImageName).HasMaxLength(250);
+
+                entity.Property(e => e.Price).HasColumnType("decimal(12, 2)");
+
+                entity.Property(e => e.ProductName)
+                    .IsRequired()
+                    .HasMaxLength(150);
+
+                entity.Property(e => e.Size).HasMaxLength(50);
+
+                entity.Property(e => e.UpdatedBy).HasMaxLength(128);
+            });
+
             OnModelCreatingPartial(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-      
     }
 }

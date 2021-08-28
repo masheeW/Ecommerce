@@ -1,0 +1,51 @@
+﻿using Microsoft.Extensions.Logging;
+using mystore.ecommerce.contracts.Repositories;
+using mystore.ecommerce.dbcontext;
+using mystore.ecommerce.dbcontext.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace mystore.ecommerce.data.Repositories
+{
+    public class ProductRepository : IProductRepository
+    {
+        private readonly EcommercedbContext _context;
+
+        private readonly ILogger<ProductRepository> _logger;
+
+        public ProductRepository(EcommercedbContext context, ILogger<ProductRepository> logger)
+        {
+            _context = context;
+            _logger = logger;
+        }
+
+        public IEnumerable<Product> GetAllProducts()
+        {
+            try
+            {
+                return _context.Product.ToList();               
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{ex.Message}");
+                return null;
+            }
+        }
+
+        public IEnumerable<Product> GetProductsByCategory(string categpry)
+        {
+            try
+            {
+                return _context.Product.Where(p=>p.Category == categpry).ToList();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{ex.Message}");
+                return null;
+            }
+        }
+    }
+}
