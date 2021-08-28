@@ -1,20 +1,26 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using mystore.ecommerce.contracts.Repositories;
+using mystore.ecommerce.data.Mappers;
 using mystore.ecommerce.data.Repositories;
 using mystore.ecommerce.dbcontext;
+using mystore.ecommerce.dbcontext.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace mystore.ecommerce.api
@@ -31,11 +37,45 @@ namespace mystore.ecommerce.api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<EcommerceDbContext>(cfg =>
+            services.AddIdentity<StoreUser, IdentityRole>(cfg =>
             {
-                cfg.UseSqlServer();
+                cfg.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<EcommerceIdentityContext>();
+            services.AddDbContext<EcommercedbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+                    assembly => assembly.MigrationsAssembly(typeof(EcommercedbContext).Assembly.FullName));
             });
 
+
+            services.AddDbContext<EcommerceIdentityContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+                    assembly => assembly.MigrationsAssembly(typeof(EcommerceIdentityContext).Assembly.FullName));
+            });
+
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            services.AddAuthentication()
+                .AddCookie()
+                .AddJwtBearer(cfg =>
+                {
+                    cfg.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                    {
+                        ValidIssuer = Configuration["Tokens:Issuer"],
+                        ValidAudience = Configuration["Tokens:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Tokens:Key"]))
+                    };
+                });
+
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddMvc();
             //services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddControllers().AddNewtonsoftJson(cfg =>
@@ -61,6 +101,7 @@ namespace mystore.ecommerce.api
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

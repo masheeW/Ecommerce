@@ -1,12 +1,17 @@
 ﻿
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using mystore.ecommerce.dbcontext.Models;
 using mystore.ecommerce.web.Models;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace mystore.ecommerce.web.Controllers
@@ -16,12 +21,14 @@ namespace mystore.ecommerce.web.Controllers
         private readonly ILogger<AccountController> _logger;
         private readonly SignInManager<StoreUser> _signInManager;
         private readonly UserManager<StoreUser> _userManager;
+        private readonly IConfiguration _config;
 
-        public AccountController(ILogger<AccountController> logger, SignInManager<StoreUser> signInManager, UserManager<StoreUser> userManager)
+        public AccountController(ILogger<AccountController> logger, SignInManager<StoreUser> signInManager, UserManager<StoreUser> userManager, IConfiguration configuration)
         {
             _logger = logger;
             _signInManager = signInManager;
             _userManager = userManager;
+            _config = configuration;
         }
         public IActionResult Login()
         {
@@ -82,22 +89,25 @@ namespace mystore.ecommerce.web.Controllers
             if (ModelState.IsValid)
             {
                 var user = new StoreUser() { 
-                UserName = userModel.Email
+                UserName = userModel.Email,
+                Email = userModel.Email,
+                FirstName = userModel.FirstName,
+                LastName = userModel.LastName                
                 };
 
                 var result = await _userManager.CreateAsync(user, userModel.Password);
                 if (result.Succeeded)
                 {
-                    var response = await _userManager.AddToRoleAsync(user, "Customer");
+                    var response = await _userManager.AddToRoleAsync(user, "Admin");
                     if (response.Succeeded)
                     {
-                        return Ok();
+                        return RedirectToAction("Index", "App");
                     }
                     else
                     {
                         foreach (var error in response.Errors)
                         {
-                            ModelState.TryAddModelError(error.Code, error.Description);
+                            ModelState.AddModelError(error.Code, error.Description);
                         }
                     }
                 }
@@ -105,14 +115,51 @@ namespace mystore.ecommerce.web.Controllers
                 {
                     foreach (var error in result.Errors)
                     {
-                        ModelState.TryAddModelError(error.Code, error.Description);
+                        ModelState.AddModelError(error.Code, error.Description);
                     }
                 }
             }
 
-            //ModelState.AddModelError("", "Failed to register");
-            return View();
+            return RedirectToAction("Login", "App");
 
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateToken([FromBody] LoginViewModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                var user = await _userManager.FindByNameAsync(model.UserName);
+
+                if(user != null)
+                {
+                    var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+
+                    if(result.Succeeded)
+                    {
+                        //create token
+                        var claims = new[]
+                        {
+                            new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+                            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                            new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName)
+                        };
+
+                        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
+                        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+                        var token = new JwtSecurityToken(_config["Tokens:Issuer"], _config["Tokens:Audience"], claims, signingCredentials: creds, expires: DateTime.UtcNow.AddMinutes(60));
+
+                        return Created("", new
+                        {
+                            token = new JwtSecurityTokenHandler().WriteToken(token),
+                            expiration= token.ValidTo
+                        });
+                    }
+                }
+             
+            }
+            return BadRequest();
         }
 
     }

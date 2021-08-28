@@ -1,7 +1,11 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using mystore.ecommerce.contracts.Repositories;
+using mystore.ecommerce.dbcontext.Models;
 using mystore.ecommerce.entities.Order;
 using System;
 using System.Collections.Generic;
@@ -12,23 +16,29 @@ namespace mystore.ecommerce.api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class OrdersController : Controller
     {
         private readonly IOrderRepository _orderRepository;
         private readonly ILogger<OrdersController> _logger;
         private readonly IMapper _mapper;
-        public OrdersController(IOrderRepository orderRepository, ILogger<OrdersController> logger, IMapper mapper)
+        UserManager<StoreUser> _userManager;
+
+        public OrdersController(IOrderRepository orderRepository, ILogger<OrdersController> logger, IMapper mapper, UserManager<StoreUser> userManager)
         {
             _orderRepository = orderRepository;
             _logger = logger;
             _mapper = mapper;
+            _userManager = userManager;
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             try
             {
+                var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
+                var results = _orderRepository.GetAllOrdersByUser(currentUser.UserName);
                 return Ok(_orderRepository.GetAllOrders());
                 
             }
@@ -41,7 +51,7 @@ namespace mystore.ecommerce.api.Controllers
 
 
         [HttpGet("{id:int}")]
-        public IActionResult Get(int Id)
+        public IActionResult Get(string Id)
         {
             try
             {
@@ -64,7 +74,7 @@ namespace mystore.ecommerce.api.Controllers
         }
         
         [HttpPost]
-        public IActionResult Post([FromBody] OrderDetail model)
+        public async Task<IActionResult> Post([FromBody] OrderDetail model)
         {
             try
             {
@@ -79,6 +89,8 @@ namespace mystore.ecommerce.api.Controllers
                     //    OrderDate = model.OrderDate,
                     //    OrderNumber = model.OrderNumber
                     //};
+                    var currentUser = _userManager.FindByNameAsync(User.Identity.Name);
+                    newOrder.Customer = currentUser.Result.UserName;
                     var order = _orderRepository.AddOrder(newOrder);
                     //map back to model
                     return Created($"/api/orders/{order.Id}", _mapper.Map<dbcontext.Models.Order,OrderDetail>(order)); //use model instead Order

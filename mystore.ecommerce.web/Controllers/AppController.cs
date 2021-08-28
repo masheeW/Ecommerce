@@ -50,8 +50,12 @@ namespace mystore.ecommerce.web.Controllers
         [Authorize]
         public IActionResult Shop()
         {
-            var results = _orderRepository.GetAllOrders();
-            return View(results);
+            if (User.IsInRole("Customer"))
+            {
+                var results = _orderRepository.GetAllOrders();
+                return View(results);
+            }
+            return RedirectToAction("Index", "App");
         }
     }
 }

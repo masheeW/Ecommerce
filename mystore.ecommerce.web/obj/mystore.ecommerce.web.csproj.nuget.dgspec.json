@@ -1,35 +1,41 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj": {}
+    "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj": {
+    "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj",
+        "projectUniqueName": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj",
         "projectName": "mystore.ecommerce.contracts",
-        "projectPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.contracts\\obj\\",
+        "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj",
+        "packagesPath": "C:\\Users\\maheshikaw.KEELLS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\maheshikaw.KEELLS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://jkcs-projects.pkgs.visualstudio.com/KeellsMobileApp/_packaging/jkit-smart-retail-feed/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
-                "projectPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj"
+              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
+                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj"
               }
             }
           }
@@ -62,32 +68,38 @@
         }
       }
     },
-    "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj": {
+    "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj",
+        "projectUniqueName": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj",
         "projectName": "mystore.ecommerce.data",
-        "projectPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.data\\obj\\",
+        "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj",
+        "packagesPath": "C:\\Users\\maheshikaw.KEELLS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\maheshikaw.KEELLS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://jkcs-projects.pkgs.visualstudio.com/KeellsMobileApp/_packaging/jkit-smart-retail-feed/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj": {
-                "projectPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj"
+              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj": {
+                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj"
               }
             }
           }
@@ -136,25 +148,31 @@
         }
       }
     },
-    "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
+    "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj",
+        "projectUniqueName": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj",
         "projectName": "mystore.ecommerce.dbcontext",
-        "projectPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.dbcontext\\obj\\",
+        "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj",
+        "packagesPath": "C:\\Users\\maheshikaw.KEELLS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\maheshikaw.KEELLS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://jkcs-projects.pkgs.visualstudio.com/KeellsMobileApp/_packaging/jkit-smart-retail-feed/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -214,25 +232,31 @@
         }
       }
     },
-    "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
+    "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj",
+        "projectUniqueName": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj",
         "projectName": "mystore.ecommerce.entities",
-        "projectPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.entities\\obj\\",
+        "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj",
+        "packagesPath": "C:\\Users\\maheshikaw.KEELLS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\maheshikaw.KEELLS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://jkcs-projects.pkgs.visualstudio.com/KeellsMobileApp/_packaging/jkit-smart-retail-feed/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -268,38 +292,44 @@
         }
       }
     },
-    "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj": {
+    "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj",
+        "projectUniqueName": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj",
         "projectName": "mystore.ecommerce.web",
-        "projectPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.web\\obj\\",
+        "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj",
+        "packagesPath": "C:\\Users\\maheshikaw.KEELLS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\maheshikaw.KEELLS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://jkcs-projects.pkgs.visualstudio.com/KeellsMobileApp/_packaging/jkit-smart-retail-feed/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj": {
-                "projectPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj"
+              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj": {
+                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj"
               },
-              "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
-                "projectPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj"
+              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
+                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj"
               },
-              "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
-                "projectPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
+              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
+                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
               }
             }
           }
@@ -314,6 +344,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[5.0.9, )"

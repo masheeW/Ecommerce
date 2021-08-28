@@ -29,10 +29,10 @@ namespace mystore.ecommerce.web
             {
                 cfg.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<EcommerceIdentityContext>();
-            services.AddDbContext<EcommerceDbContext>(options =>
+            services.AddDbContext<EcommercedbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-                    assembly => assembly.MigrationsAssembly(typeof(EcommerceDbContext).Assembly.FullName));
+                    assembly => assembly.MigrationsAssembly(typeof(EcommercedbContext).Assembly.FullName));
             });
 
 
@@ -41,6 +41,10 @@ namespace mystore.ecommerce.web
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
                     assembly => assembly.MigrationsAssembly(typeof(EcommerceIdentityContext).Assembly.FullName));
             });
+
+            services.AddAuthentication()
+                .AddCookie()
+                .AddJwtBearer();
          
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddMvc();
