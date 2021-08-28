@@ -12,7 +12,7 @@ export class Store {
     public products: Product[] = [];
 
     loadProducts(): Observable<void>{
-        return this.http.get<[]>("https://localhost:44327/")
+        return this.http.get<[]>("https://localhost:44327/api/products")
             .pipe(map(data => {
                 this.products = data;
                 return;
