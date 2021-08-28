@@ -1,22 +1,16 @@
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using mystore.ecommerce.contracts.Repositories;
-using mystore.ecommerce.data;
 using mystore.ecommerce.data.Repositories;
 using mystore.ecommerce.dbcontext;
-using mystore.ecommerce.dbcontext.identity;
-using mystore.ecommerce.entities.User;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using mystore.ecommerce.dbcontext.Models;
+using System.Reflection;
 
 namespace mystore.ecommerce.web
 {
@@ -31,13 +25,23 @@ namespace mystore.ecommerce.web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddIdentity<StoreUser, IdentityRole>(cfg =>
+            {
+                cfg.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<EcommerceIdentityContext>();
             services.AddDbContext<EcommerceDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
                     assembly => assembly.MigrationsAssembly(typeof(EcommerceDbContext).Assembly.FullName));
             });
 
+
+            services.AddDbContext<EcommerceIdentityContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+                    assembly => assembly.MigrationsAssembly(typeof(EcommerceIdentityContext).Assembly.FullName));
+            });
+         
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddMvc();
             services.AddControllersWithViews()
@@ -59,7 +63,7 @@ namespace mystore.ecommerce.web
 
             app.UseStaticFiles();
             app.UseRouting();
-
+            
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

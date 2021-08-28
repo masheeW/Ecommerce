@@ -2141,6 +2141,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.9",
           "Microsoft.EntityFrameworkCore": "5.0.9",
           "Microsoft.EntityFrameworkCore.Relational": "5.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.9"
@@ -2150,19 +2151,6 @@
         },
         "runtime": {
           "bin/placeholder/mystore.ecommerce.dbcontext.dll": {}
-        }
-      },
-      "mystore.ecommerce.dbcontext.identity/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.9"
-        },
-        "compile": {
-          "bin/placeholder/mystore.ecommerce.dbcontext.identity.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/mystore.ecommerce.dbcontext.identity.dll": {}
         }
       },
       "mystore.ecommerce.entities/1.0.0": {
@@ -7478,11 +7466,6 @@
       "path": "../mystore.ecommerce.dbcontext/mystore.ecommerce.dbcontext.csproj",
       "msbuildProject": "../mystore.ecommerce.dbcontext/mystore.ecommerce.dbcontext.csproj"
     },
-    "mystore.ecommerce.dbcontext.identity/1.0.0": {
-      "type": "project",
-      "path": "../mystore.ecommerce.dbcontext.identity/mystore.ecommerce.dbcontext.identity.csproj",
-      "msbuildProject": "../mystore.ecommerce.dbcontext.identity/mystore.ecommerce.dbcontext.identity.csproj"
-    },
     "mystore.ecommerce.entities/1.0.0": {
       "type": "project",
       "path": "../mystore.ecommerce.entities/mystore.ecommerce.entities.csproj",
@@ -7497,32 +7480,24 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
       "mystore.ecommerce.data >= 1.0.0",
       "mystore.ecommerce.dbcontext >= 1.0.0",
-      "mystore.ecommerce.dbcontext.identity >= 1.0.0",
       "mystore.ecommerce.entities >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Krishan\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\HP\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj",
       "projectName": "mystore.ecommerce.web",
-      "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj",
-      "packagesPath": "C:\\Users\\Krishan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\obj\\",
+      "projectPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj",
+      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.web\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Krishan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -7535,17 +7510,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj": {
-              "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj"
+            "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj": {
+              "projectPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj"
             },
-            "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext.identity\\mystore.ecommerce.dbcontext.identity.csproj": {
-              "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext.identity\\mystore.ecommerce.dbcontext.identity.csproj"
+            "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
+              "projectPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj"
             },
-            "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
-              "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj"
-            },
-            "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
-              "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
+            "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
+              "projectPath": "C:\\Users\\HP\\source\\repos\\EcommerceK\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
             }
           }
         }
@@ -7597,7 +7569,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

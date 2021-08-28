@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace mystore.ecommerce.data.Mappers
 {
-    public class EntityMapperr 
+    public class EntityMapper 
     {
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mystore.ecommerce.dbcontext.identity.Models
+namespace mystore.ecommerce.dbcontext.Models
 {
     public class StoreUser : IdentityUser
     {

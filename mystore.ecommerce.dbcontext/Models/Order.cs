@@ -10,7 +10,7 @@ namespace mystore.ecommerce.dbcontext.Models
         public int Id { get; set; }
         public string OrderNumber { get; set; }
         public DateTime? OrderDate { get; set; }
-        //public ShopUser User { get; set; }
+        public StoreUser  User { get; set; }
         public ICollection<OrderItem> Items { get; set; }
     }
 }

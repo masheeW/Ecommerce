@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using mystore.ecommerce.entities.User;
+using mystore.ecommerce.dbcontext.Models;
 using mystore.ecommerce.web.Models;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,13 @@ namespace mystore.ecommerce.web.Controllers
     {
         private readonly ILogger<AccountController> _logger;
         private readonly SignInManager<StoreUser> _signInManager;
+        private readonly UserManager<StoreUser> _userManager;
 
-        public AccountController(ILogger<AccountController> logger, SignInManager<StoreUser> signInManager)
+        public AccountController(ILogger<AccountController> logger, SignInManager<StoreUser> signInManager, UserManager<StoreUser> userManager)
         {
             _logger = logger;
             _signInManager = signInManager;
+            _userManager = userManager;
         }
         public IActionResult Login()
         {
@@ -62,5 +65,55 @@ namespace mystore.ecommerce.web.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "App");
         }
+
+        public IActionResult Register()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "App");
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(UserRegistrationModel userModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new StoreUser() { 
+                UserName = userModel.Email
+                };
+
+                var result = await _userManager.CreateAsync(user, userModel.Password);
+                if (result.Succeeded)
+                {
+                    var response = await _userManager.AddToRoleAsync(user, "Customer");
+                    if (response.Succeeded)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        foreach (var error in response.Errors)
+                        {
+                            ModelState.TryAddModelError(error.Code, error.Description);
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.TryAddModelError(error.Code, error.Description);
+                    }
+                }
+            }
+
+            //ModelState.AddModelError("", "Failed to register");
+            return View();
+
+        }
+
     }
 }
