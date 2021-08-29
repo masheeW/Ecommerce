@@ -11,12 +11,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="client\src\app\pages\login\loginPage.component.ts" />
+    <None Remove="client\src\app\pages\shopPage.component.ts" />
+    <None Remove="client\src\app\router\index.ts" />
+    <None Remove="client\src\app\services\authActivator.service.ts" />
     <None Remove="client\src\app\services\store.service.ts" />
+    <None Remove="client\src\app\shared\LoginResults.ts" />
+    <None Remove="client\src\app\shared\Order.ts" />
     <None Remove="client\src\app\shared\Product.ts" />
+    <None Remove="client\src\app\views\cart\cartView.component.ts" />
     <None Remove="client\src\app\views\productListView.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="client\src\app\pages\checkout\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
@@ -35,6 +43,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.9">
       <PrivateAssets>all</PrivateAssets>
@@ -51,8 +60,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="client\src\app\pages\login\loginPage.component.ts" />
+    <TypeScriptCompile Include="client\src\app\pages\shop\shopPage.component.ts" />
+    <TypeScriptCompile Include="client\src\app\router\index.ts" />
+    <TypeScriptCompile Include="client\src\app\services\authActivator.service.ts" />
     <TypeScriptCompile Include="client\src\app\services\store.service.ts" />
+    <TypeScriptCompile Include="client\src\app\shared\LoginResults.ts" />
+    <TypeScriptCompile Include="client\src\app\shared\Order.ts" />
     <TypeScriptCompile Include="client\src\app\shared\Product.ts" />
+    <TypeScriptCompile Include="client\src\app\views\cart\cartView.component.ts" />
     <TypeScriptCompile Include="client\src\app\views\productListView.component.ts" />
     <TypeScriptCompile Include="wwwroot\ts\main.ts" />
     <TypeScriptCompile Include="wwwroot\ts\shopper.ts" />

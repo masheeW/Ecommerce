@@ -16,6 +16,7 @@ namespace mystore.ecommerce.web.Models
         public string Email { get; set; }
         [Required]
         [MaxLength(250)]
+        public string Subject { get; set; }
         public string Message { get; set; }
     }
 }

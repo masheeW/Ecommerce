@@ -13,5 +13,7 @@ namespace mystore.ecommerce.contracts.Repositories
         Order GetOrderById(string Id);
         Order AddOrder(Order order);
         IEnumerable<Order> GetAllOrdersByUser(string username);
+        void AddEntity(object entity);
+        bool SaveAll();
     }
 }

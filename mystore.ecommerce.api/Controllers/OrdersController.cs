@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using mystore.ecommerce.contracts.Repositories;
 using mystore.ecommerce.dbcontext.Models;
-using mystore.ecommerce.entities.Order;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,38 +73,38 @@ namespace mystore.ecommerce.api.Controllers
             }
         }
         
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] OrderDetail model)
-        {
-            try
-            {
-                if(ModelState.IsValid)
-                {
-                    //add mapper
-                    var newOrder = _mapper.Map<OrderDetail, dbcontext.Models.Order>(model);
-                    //OR
-                    //var newOrder = new dbcontext.Models.Order()
-                    //{
-                    //    Id = model.Id,
-                    //    OrderDate = model.OrderDate,
-                    //    OrderNumber = model.OrderNumber
-                    //};
-                    var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
-                    newOrder.Customer = currentUser.Id;
-                    var order = _orderRepository.AddOrder(newOrder);
-                    //map back to model
-                    return Created($"/api/orders/{order.Id}", _mapper.Map<dbcontext.Models.Order,OrderDetail>(order)); //use model instead Order
-                }
-                else
-                {
-                    return BadRequest(ModelState);
-                }
-            }
-            catch(Exception ex)
-            {
-                _logger.LogError(ex.Message);
-                return BadRequest("Failed to save");
-            }
-        }
+        //[HttpPost]
+        //public async Task<IActionResult> Post([FromBody] OrderDetail model)
+        //{
+        //    try
+        //    {
+        //        if(ModelState.IsValid)
+        //        {
+        //            //add mapper
+        //            var newOrder = _mapper.Map<OrderDetail, dbcontext.Models.Order>(model);
+        //            //OR
+        //            //var newOrder = new dbcontext.Models.Order()
+        //            //{
+        //            //    Id = model.Id,
+        //            //    OrderDate = model.OrderDate,
+        //            //    OrderNumber = model.OrderNumber
+        //            //};
+        //            var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
+        //            newOrder.Customer = currentUser.Id;
+        //            var order = _orderRepository.AddOrder(newOrder);
+        //            //map back to model
+        //            return Created($"/api/orders/{order.Id}", _mapper.Map<dbcontext.Models.Order,OrderDetail>(order)); //use model instead Order
+        //        }
+        //        else
+        //        {
+        //            return BadRequest(ModelState);
+        //        }
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        _logger.LogError(ex.Message);
+        //        return BadRequest("Failed to save");
+        //    }
+        //}
     }
 }

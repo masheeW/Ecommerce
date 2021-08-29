@@ -18,6 +18,7 @@ namespace mystore.ecommerce.dbcontext
         }
 
         public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderItem> OrderItem { get; set; }
         public virtual DbSet<Product> Product { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -51,6 +52,35 @@ namespace mystore.ecommerce.dbcontext
                 entity.Property(e => e.TotalDiscount).HasColumnType("decimal(12, 2)");
 
                 entity.Property(e => e.UpdatedBy).HasMaxLength(128);
+            });
+
+            modelBuilder.Entity<OrderItem>(entity =>
+            {
+                entity.Property(e => e.Id).HasMaxLength(50);
+
+                entity.Property(e => e.OrderId)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.ProductId).HasMaxLength(50);
+
+                entity.Property(e => e.Quantity).HasColumnType("decimal(12, 2)");
+
+                entity.Property(e => e.TotalPrice).HasColumnType("decimal(12, 2)");
+
+                entity.Property(e => e.UnitPrice).HasColumnType("decimal(12, 2)");
+
+
+                entity.HasOne(d => d.Order)
+                    .WithMany(p => p.OrderItem)
+                    .HasForeignKey(d => d.OrderId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_OrderItemOrderId");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.OrderItem)
+                    .HasForeignKey(d => d.ProductId)
+                    .HasConstraintName("FK_OrderItemProductId");
             });
 
             modelBuilder.Entity<Product>(entity =>

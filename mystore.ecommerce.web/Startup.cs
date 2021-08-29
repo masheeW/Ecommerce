@@ -7,12 +7,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using mystore.ecommerce.contracts.Repositories;
 using mystore.ecommerce.data.Mappers;
 using mystore.ecommerce.data.Repositories;
 using mystore.ecommerce.dbcontext;
 using mystore.ecommerce.dbcontext.Models;
 using System.Reflection;
+using System.Text;
 
 namespace mystore.ecommerce.web
 {
@@ -53,15 +55,28 @@ namespace mystore.ecommerce.web
             services.AddSingleton(mapper);
 
             services.AddAuthentication()
-                .AddCookie()
-                .AddJwtBearer();
-         
+               .AddCookie()
+               .AddJwtBearer(cfg =>
+               {
+                   cfg.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                   {
+                       ValidIssuer = Configuration["Tokens:Issuer"],
+                       ValidAudience = Configuration["Tokens:Audience"],
+                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Tokens:Key"]))
+                   };
+               });
+
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
 
             services.AddMvc();
-            services.AddControllersWithViews()
-                .AddRazorRuntimeCompilation();
+
+            services.AddControllersWithViews().AddRazorRuntimeCompilation()
+    .AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+         
+        
             services.AddRazorPages();
         }
 

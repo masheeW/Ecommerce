@@ -28,8 +28,7 @@ namespace mystore.ecommerce.data.Repositories
         {
             try
             {
-                return _context.Order.ToList();
-                //return _context.Orders.Include(o => o.Items).ToList();
+                return _context.Order.Include(o => o.OrderItem).ToList();
             }
             catch (Exception ex)
             {
@@ -55,6 +54,7 @@ namespace mystore.ecommerce.data.Repositories
 
         public Order AddOrder(Order order)
         {
+            order.Id = Guid.NewGuid().ToString();
             var savedOrder =_context.Add(order);
             _context.SaveChanges();
             return savedOrder.Entity;
@@ -62,7 +62,26 @@ namespace mystore.ecommerce.data.Repositories
 
         public IEnumerable<Order> GetAllOrdersByUser(string username)
         {
-            return _context.Order.Where(o => o.Customer == username).ToList();
+            try
+            {
+                return _context.Order.Where(o => o.Customer == username).Include(o => o.OrderItem).ThenInclude(o=>o.Product).ToList();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{ex.Message}");
+                return null;
+            }
+        }
+
+
+        public bool SaveAll()
+        {
+            return _context.SaveChanges() > 0;
+        }
+
+        public void AddEntity(object entity)
+        {
+            _context.Add(entity);
         }
     }
 }

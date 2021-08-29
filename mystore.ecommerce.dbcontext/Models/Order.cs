@@ -6,6 +6,11 @@ namespace mystore.ecommerce.dbcontext.Models
 {
     public partial class Order
     {
+        public Order()
+        {
+            OrderItem = new HashSet<OrderItem>();
+        }
+
         public string Id { get; set; }
         public string Customer { get; set; }
         public string OrderNumber { get; set; }
@@ -17,5 +22,7 @@ namespace mystore.ecommerce.dbcontext.Models
         public string CreatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public string UpdatedBy { get; set; }
+
+        public virtual ICollection<OrderItem> OrderItem { get; set; }
     }
 }

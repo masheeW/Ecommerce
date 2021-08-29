@@ -35,7 +35,7 @@ namespace mystore.ecommerce.api.Controllers
 
 
         [HttpGet]
-        [EnableCors("Policy1")]
+        [EnableCors("CorsPolicy")]
         public async Task<IActionResult> Get()
         {
             try

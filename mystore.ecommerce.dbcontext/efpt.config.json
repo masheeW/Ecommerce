@@ -18,6 +18,10 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[OrderItem]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Product]"
       }
    ],
