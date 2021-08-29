@@ -1,0 +1,16 @@
+cd C:\Users\maheshikaw.KEELLS\source\repos\Ecommerce\mystore.ecommerce.web
+ng new --help
+ng new client --skip-git --skip-tests --minimal --defaults --dry-run
+ng new client --skip-git --skip-tests --minimal --defaults
+cd client
+ng build
+ng build --vendor-chunk --output-hashing none
+ng serve
+http://localhost:4200/
+
+
+main.65e49e4bfca1ff2de1f7.js
+polyfills.7d99fe739f19bbf4acee.js
+runtime.4b1540bf51da5ef20c67.js
+styles.31d6cfe0d16ae931b73c.css
+vendor.49bc81373b448f5a94f2.js
