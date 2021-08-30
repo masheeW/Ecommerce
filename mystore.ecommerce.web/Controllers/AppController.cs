@@ -15,12 +15,14 @@ namespace mystore.ecommerce.web.Controllers
     public class AppController : Controller
     {
         private readonly IOrderRepository _orderRepository;
+        private readonly IProductRepository _productRepository;
         private readonly ILogger<AppController> _logger;
 
-        public AppController(IOrderRepository orderRepository, ILogger<AppController> logger)
+        public AppController(IOrderRepository orderRepository, ILogger<AppController> logger, IProductRepository productRepository)
         {
             _orderRepository = orderRepository;
             _logger = logger;
+            _productRepository = productRepository;
         }
         public IActionResult Index()
         {
@@ -47,11 +49,11 @@ namespace mystore.ecommerce.web.Controllers
             }
         }
 
-        [Authorize]
+      
         public IActionResult Shop()
         {
-            var results = _orderRepository.GetAllOrders();
-            return View(results);
+                var results = _productRepository.GetAllProducts();
+                return View(results);
         }
     }
 }

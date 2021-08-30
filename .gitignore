@@ -172,3 +172,4 @@ UpgradeLog*.htm
 FakesAssemblies/
 packages
 .vs
+/mystore.ecommerce.database/mystore.ecommerce.database.jfm

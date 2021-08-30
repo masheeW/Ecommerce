@@ -2,18 +2,30 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @using mystore.ecommerce.dbcontext.Models
-@model IEnumerable<Order>
+@model IEnumerable<Product>
+@section Scripts{
+    <script src="~/client/vendor.js"></script>
+    <script src="~/client/polyfills.js"></script>
+    <script src="~/client/runtime.js"></script>
+    <script src="~/client/main.js" asp-append-version="true"></script>
+}
+@section head{
+<base href="/App/Shop" />
+    <link href="~/client/styles.css" rel="stylesheet" />
+}
 @{
 
 }
 
-<h1>Shop</h1>
-<p>@Model.Count()</p>
-@foreach(var p in Model)
-            {
-<div class="col-md-3">
-    <img src="~/img/" class="img-fluid"/>
-    <h3>@p.OrderNumber</h3>
-    <button>Buy</button>
-</div>
-            }
+<the-shop></the-shop>
+
+@*<h1>Shop</h1>
+    <p>@Model.Count()</p>
+    @foreach(var p in Model)
+                {
+    <div class="col-md-3">
+        <img src="~/img/" class="img-fluid"/>
+        <h3>@p.OrderNumber</h3>
+        <button>Buy</button>
+    </div>
+                }*@

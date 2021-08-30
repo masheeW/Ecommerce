@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[OrderItem]
+(
+Id	NVARCHAR(50) NOT NULL DEFAULT NEWID(),	
+OrderId	NVARCHAR	(50)	NOT NULL,
+ProductId	NVARCHAR (50)  NULL  ,		
+Quantity	DECIMAL	(12 , 2)	NOT NULL	DEFAULT 0,
+UnitPrice	DECIMAL	(12 , 2) NOT NULL,
+TotalPrice	DECIMAL	(12 , 2) NOT NULL,
+CONSTRAINT PK_OrderItem PRIMARY KEY(Id),
+CONSTRAINT FK_OrderItemOrderId FOREIGN KEY (OrderId) REFERENCES [dbo].[Order](Id),
+CONSTRAINT FK_OrderItemProductId FOREIGN KEY (ProductId) REFERENCES [dbo].[Product](Id)
+)
