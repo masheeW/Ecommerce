@@ -60,6 +60,19 @@ export class Store {
         }
     }
 
+    removeFromCart(item: Product) {
+        let oitem: OrderItem | undefined;
+
+        oitem = this.order.orderItems.find(o => o.productId === item.id);
+
+        if (oitem) {
+            this.order.totalAmount = this.order.totalAmount - oitem?.totalPrice;
+
+            this.order.orderItems = this.order.orderItems.filter(itm => itm !== oitem);
+        }
+      
+    }
+
     checkout() {
         const headers = new HttpHeaders().set("Authorization", `Bearer ${this.token}`);
 

@@ -13,7 +13,6 @@ namespace mystore.ecommerce.web.Controllers.Api
 {
     [ApiController]
     [Route("api/[controller]")]
-    // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ProductsController : Controller
     {
         private readonly IProductRepository _productsRepository;

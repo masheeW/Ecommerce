@@ -2,10 +2,13 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using mystore.ecommerce.contracts.Repositories;
@@ -13,6 +16,7 @@ using mystore.ecommerce.data.Mappers;
 using mystore.ecommerce.data.Repositories;
 using mystore.ecommerce.dbcontext;
 using mystore.ecommerce.dbcontext.Models;
+using System.IO;
 using System.Reflection;
 using System.Text;
 
@@ -75,8 +79,12 @@ namespace mystore.ecommerce.web
     .AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-         
-        
+            services.Configure<FormOptions>(o => {
+                o.ValueLengthLimit = int.MaxValue;
+                o.MultipartBodyLengthLimit = int.MaxValue;
+                o.MemoryBufferThreshold = int.MaxValue;
+            });
+
             services.AddRazorPages();
         }
 
@@ -93,15 +101,23 @@ namespace mystore.ecommerce.web
             }
 
             app.UseStaticFiles();
+        
+
             app.UseRouting();
             
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapAreaControllerRoute(
+                  name: "Admin",
+                  areaName: "Admin",
+                  pattern: "/Admin/{controller=Home}/{action=Index}");
+
                 endpoints.MapControllerRoute("Default", "/{controller}/{action}/{id?}",
                     new { controller = "App", action = "Index" });
+
+                endpoints.MapRazorPages();
             });
         }
 

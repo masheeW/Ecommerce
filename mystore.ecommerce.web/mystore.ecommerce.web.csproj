@@ -24,6 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="client\src\app\pages\checkout\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\img\" />
@@ -69,7 +71,7 @@
     <TypeScriptCompile Include="client\src\app\shared\Order.ts" />
     <TypeScriptCompile Include="client\src\app\shared\Product.ts" />
     <TypeScriptCompile Include="client\src\app\views\cart\cartView.component.ts" />
-    <TypeScriptCompile Include="client\src\app\views\productListView.component.ts" />
+    <TypeScriptCompile Include="client\src\app\views\productlist\productListView.component.ts" />
     <TypeScriptCompile Include="wwwroot\ts\main.ts" />
     <TypeScriptCompile Include="wwwroot\ts\shopper.ts" />
   </ItemGroup>

@@ -2,27 +2,28 @@
   <h3>Confirm Order</h3>
   <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
   <table class="table table-bordered table-hover">
-    <tr *ngFor="let o of store.order.orderItems">
-      <td><img src="/img/{{ o.product.imageName }}" alt="o.product.productName" class="img-thumbnail checkout-thumb" /></td>
-      <td>{{ o.product.category }}({{ o.product.size }}) : {{ o.product.productName }}</td>
-      <td>{{ o.quantity }}</td>
-      <td>{{ o.unitPrice | currency }}</td>
-      <td>{{ (o.unitPrice * o.quantity) | currency }}</td>
-    </tr>
+      <tr *ngFor="let o of store.order.orderItems">
+          <td><img src="/img/{{ o.product.imageName }}" alt="o.product.productName" class="img-thumbnail checkout-thumb" /></td>
+          <td>{{ o.product.category }}({{ o.product.size }}) : {{ o.product.productName }}</td>
+          <td>{{ o.quantity }}</td>
+          <td>{{ o.unitPrice | currency:'LKR ' }}</td>
+          <td>{{ (o.unitPrice * o.quantity) | currency:'LKR ' }}</td>
+          <td><button (click)="store.removeFromCart(o.product)" class="btn btn-danger btn-remove"><i class="fas fa-times"></i></button></td>
+      </tr>
   </table>
   <div class="col-md-4 col-md-offset-8 text-right">
     <table class="table table-condensed">
       <tr>
         <td class="text-right">Subtotal</td>
-        <td class="text-right">{{ store.order.subtotal | currency }}</td>
+        <td class="text-right">{{ store.order.subtotal | currency:'LKR ' }}</td>
       </tr>
       <tr>
         <td class="text-right">Shipping</td>
-        <td class="text-right">$ 0.00</td>
+        <td class="text-right">LKR 0.00</td>
       </tr>
       <tr>
         <td class="text-right">Total:</td>
-        <td class="text-right">{{ store.order.subtotal | currency }}</td>
+        <td class="text-right">{{ store.order.subtotal | currency:'LKR ' }}</td>
       </tr>
     </table>
     <button class="btn btn-success" (click)="onCheckout()">Complete Purchase</button>

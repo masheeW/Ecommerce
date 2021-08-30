@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -34,7 +35,7 @@ namespace mystore.ecommerce.web.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "App");
+                return RedirectToAction("Shop", "App");
             }
 
             return View();
@@ -46,12 +47,18 @@ namespace mystore.ecommerce.web.Controllers
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RemeberMe, false);
-
+               
+                var user = await _userManager.FindByEmailAsync(model.UserName);
+           
                 if (result.Succeeded)
                 {
                     if (Request.Query.Keys.Contains("ReturnUrl"))
                     {
                         return Redirect(Request.Query["ReturnUrl"].First());
+                    }
+                    else if(await _userManager.IsInRoleAsync(user,"Admin"))
+                    {
+                        return RedirectToAction("Index", "Home");
                     }
                     else
                     {
@@ -70,14 +77,14 @@ namespace mystore.ecommerce.web.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "App");
+            return RedirectToAction("Shop", "App");
         }
 
         public IActionResult Register()
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "App");
+                return RedirectToAction("Shop", "App");
             }
 
             return View();
@@ -98,10 +105,10 @@ namespace mystore.ecommerce.web.Controllers
                 var result = await _userManager.CreateAsync(user, userModel.Password);
                 if (result.Succeeded)
                 {
-                    var response = await _userManager.AddToRoleAsync(user, "Admin");
+                    var response = await _userManager.AddToRoleAsync(user, "Customer");
                     if (response.Succeeded)
                     {
-                        return RedirectToAction("Index", "App");
+                        return RedirectToAction("Shop", "App");
                     }
                     else
                     {
@@ -143,6 +150,7 @@ namespace mystore.ecommerce.web.Controllers
                             new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                             new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName)
+                           
                         };
 
                         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
