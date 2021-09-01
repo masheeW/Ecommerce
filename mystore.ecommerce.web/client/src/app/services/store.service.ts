@@ -1,20 +1,38 @@
 ﻿import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { ObservableStore } from "@codewithdan/observable-store";   ///TODO: try removing this
+import { BehaviorSubject, Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { LoginRequest, LoginResults } from "../shared/LoginResults";
+import { StoreState } from "../interfaces/store-state";
+import { LoginRequest, LoginResults, UserRegistrationReq } from "../shared/LoginResults";
 import { Order, OrderItem } from "../shared/Order";
 import { Product } from "../shared/Product";
 
 @Injectable()
-export class Store {
-    constructor(private http: HttpClient) {
+export class Store extends ObservableStore<StoreState>{
+ 
 
+    private loginStatus = new BehaviorSubject<boolean>(this.checkLoginStatus());
+
+
+    constructor(private http: HttpClient) {
+        super({ logStateChanges: false, trackStateHistory: false });
+
+        this.loginStatus.subscribe((result) => {
+            this.setState({ loggedInStatus: result }, 'LOGGED_IN_STATUS');
+        });
     }
     public products: Product[] = [];
     public order: Order = new Order();
     public token = "";
     public expiration = new Date();
+    public isAuthenticated = false;
+    public message = "";
+
+
+    checkLoginStatus(): boolean {
+        return this.isAuthenticated;
+    }
 
     loadProducts(): Observable<void>{
         return this.http.get<[]>("/api/products")
@@ -33,7 +51,19 @@ export class Store {
             .pipe(map(data => {
                 this.token = data.token;
                 this.expiration = data.expiration;
+                this.isAuthenticated = data.IsAuthenticated;
             }));
+    }
+
+
+    register(userInfo: UserRegistrationReq): Observable<void> {
+        return this.http.post<LoginResults>("/account/Register", userInfo)
+            .pipe(map(data => {
+                this.token = data.token;
+                this.expiration = data.expiration;
+                this.isAuthenticated = data.IsAuthenticated;
+            }));
+
     }
 
     addToOrder(product: Product) {

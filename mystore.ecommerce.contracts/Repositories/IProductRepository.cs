@@ -12,5 +12,7 @@ namespace mystore.ecommerce.contracts.Repositories
         IEnumerable<Product> GetAllProducts();
 
         IEnumerable<Product> GetProductsByCategory(string categpry);
+        void AddEntity(object entity);
+        bool SaveAll();
     }
 }

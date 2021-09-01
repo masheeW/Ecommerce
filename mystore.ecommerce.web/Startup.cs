@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using mystore.ecommerce.business.managers;
+using mystore.ecommerce.contracts.managers;
 using mystore.ecommerce.contracts.Repositories;
 using mystore.ecommerce.data.Mappers;
 using mystore.ecommerce.data.Repositories;
@@ -70,8 +72,11 @@ namespace mystore.ecommerce.web
                    };
                });
 
+            services.AddScoped<IProductManager, ProductManager>();
+
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+
 
             services.AddMvc();
 

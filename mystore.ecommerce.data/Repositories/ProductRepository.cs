@@ -47,5 +47,15 @@ namespace mystore.ecommerce.data.Repositories
                 return null;
             }
         }
+
+        public bool SaveAll()
+        {
+            return _context.SaveChanges() > 0;
+        }
+
+        public void AddEntity(object entity)
+        {
+            _context.Add(entity);
+        }
     }
 }

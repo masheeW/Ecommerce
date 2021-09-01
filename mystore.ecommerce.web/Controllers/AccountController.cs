@@ -58,7 +58,7 @@ namespace mystore.ecommerce.web.Controllers
                     }
                     else if(await _userManager.IsInRoleAsync(user,"Admin"))
                     {
-                        return RedirectToAction("Index", "Home");
+                        return Redirect("/Admin/Home/Index");
                     }
                     else
                     {
@@ -91,7 +91,7 @@ namespace mystore.ecommerce.web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(UserRegistrationModel userModel)
+        public async Task<IActionResult> Register([FromBody] UserRegistrationModel userModel)
         {
             if (ModelState.IsValid)
             {
@@ -108,7 +108,7 @@ namespace mystore.ecommerce.web.Controllers
                     var response = await _userManager.AddToRoleAsync(user, "Customer");
                     if (response.Succeeded)
                     {
-                        return RedirectToAction("Shop", "App");
+                        return await CreateToken(new LoginViewModel() { UserName = userModel.Email, Password = userModel.Password });
                     }
                     else
                     {
@@ -127,7 +127,7 @@ namespace mystore.ecommerce.web.Controllers
                 }
             }
 
-            return RedirectToAction("Login", "App");
+            return View();
 
         }
 

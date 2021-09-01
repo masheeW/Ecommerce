@@ -78,7 +78,7 @@ namespace mystore.ecommerce.web.Controllers.Api
         public async Task<IActionResult> Post([FromBody] OrderModel model)
         {
             try
-            {
+            {                
                 if (ModelState.IsValid)
                 {
                     var newOrder = _mapper.Map<Order>(model);

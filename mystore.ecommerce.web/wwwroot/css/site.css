@@ -9,3 +9,6 @@
 .fill-height {
     min-height: 100%;
 }
+.bg-admin{
+    background-color:midnightblue !important;
+}

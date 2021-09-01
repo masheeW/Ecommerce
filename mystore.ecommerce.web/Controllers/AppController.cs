@@ -26,7 +26,8 @@ namespace mystore.ecommerce.web.Controllers
         }
         public IActionResult Index()
         {
-            return RedirectToAction("Shop");
+            var results = _productRepository.GetAllProducts();
+            return View(results);
         }
 
         [HttpGet("contact")]

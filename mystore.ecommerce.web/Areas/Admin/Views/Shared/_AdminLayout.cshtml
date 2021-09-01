@@ -8,16 +8,16 @@
 <html>
 <head>
     <title></title>
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/lib/fortawesome/fontawesome-free/css/all.css" rel="stylesheet" />
-    <link href="~/css/site.css"  rel="stylesheet"/>
-    @RenderSection("head",false)
+    <link href="~/css/site.css" rel="stylesheet" />
+    @RenderSection("head", false)
 </head>
 <body>
-    @*<header class="container">
-    
-        <nav class="navbar navbar-dark bg-dark navbar-expand-md bg-grey">
-                       
+    <header class="container">
+
+        <nav class="navbar navbar-dark bg-dark bg-admin navbar-expand-md bg-grey">
+
             <h1 class="navbar-brand"><i class="fas fa-store store-logo"></i>My Store</h1>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#theMenu">
                 <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a asp-controller="App" asp-action="Shop" class="nav-link">Home</a>
+                        <a asp-controller="Product" asp-action="Index" class="nav-link">Products</a>
                     </li>
                     @if (User.Identity.IsAuthenticated)
                     {
@@ -47,13 +47,13 @@
             </div>
         </nav>
     </header>
-    <section class="container">*@
+    <section class="container">
         @RenderBody()
-    @*</section>*@
+    </section>
     <footer class="text-center">Copyright 2021 My Store</footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js" ></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" ></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     @RenderSection("Scripts", false)
 </body>
 </html>

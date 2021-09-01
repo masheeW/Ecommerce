@@ -12,6 +12,8 @@ import { ShopPage } from './pages/shop/shopPage.component';
 import { LoginPage } from './pages/login/loginPage.component';
 import { AuthActivator } from './services/authActivator.service';
 import { FormsModule } from '@angular/forms';
+import { RegisterPage } from './pages/register/register.component'; 
+import { NavMenu } from './views/nav-menu/nav-menu.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FormsModule } from '@angular/forms';
         CartView,
         ShopPage,
         CheckoutPage,
-        LoginPage
+        LoginPage,
+        RegisterPage,
+        NavMenu
   ],
   imports: [
       BrowserModule,
