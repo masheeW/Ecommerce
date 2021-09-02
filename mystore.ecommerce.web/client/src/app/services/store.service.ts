@@ -21,6 +21,7 @@ export class Store {
     public expiration = new Date();
     public isAuthenticated!: boolean;
     public message = "";
+    public lastOrderNumber = "";
 
     get getLogin() {
         return this._loginStatus.asObservable();
@@ -113,6 +114,7 @@ export class Store {
             headers: headers
         })
             .pipe(map(() => {
+                this.lastOrderNumber = this.order.orderNumber;
                 this.order = new Order();
             }));
     }

@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Store } from "../../services/store.service";
 
@@ -9,16 +9,17 @@ import { Store } from "../../services/store.service";
 })
 export class CheckoutPage {
 
-  public errorMessage = "";
+    public errorMessage = "";
 
   constructor(public store: Store, private router: Router) {
   }
+   
 
   onCheckout() {
     this.errorMessage = "";
     this.store.checkout()
-      .subscribe(() => {
-        this.router.navigate(["/"]);
+        .subscribe(() => {
+            this.router.navigate(["payment"]);
       }, (err: any) => {
           this.errorMessage = `Failed to checkout: ${err}`;
       })

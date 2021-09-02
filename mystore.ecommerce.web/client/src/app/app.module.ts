@@ -14,6 +14,7 @@ import { AuthActivator } from './services/authActivator.service';
 import { FormsModule } from '@angular/forms';
 import { RegisterPage } from './pages/register/register.component'; 
 import { NavMenu } from './views/nav-menu/nav-menu.component';
+import { PaymentPage } from './pages/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NavMenu } from './views/nav-menu/nav-menu.component';
         CheckoutPage,
         LoginPage,
         RegisterPage,
-        NavMenu
+        NavMenu,
+        PaymentPage
   ],
   imports: [
       BrowserModule,

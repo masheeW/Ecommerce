@@ -1,6 +1,7 @@
 ﻿import { RouterModule } from "@angular/router";
 import { CheckoutPage } from "../pages/checkout/checkout.component";
 import { LoginPage } from "../pages/login/loginPage.component";
+import { PaymentPage } from "../pages/payment/payment.component";
 import { RegisterPage } from "../pages/register/register.component";
 import { ShopPage } from "../pages/shop/shopPage.component";
 import { AuthActivator } from "../services/authActivator.service";
@@ -10,6 +11,7 @@ const routes = [
     { path: "checkout", component: CheckoutPage, canActivate: [AuthActivator] },
     { path: "login", component: LoginPage },
     { path: "register", component: RegisterPage },
+    { path: "payment", component: PaymentPage },
     { path: "**", redirectTo: "/"}
 ];
 

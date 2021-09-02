@@ -17,7 +17,7 @@ export class OrderItem {
 export class Order {
     id!: string;
     customer!: string;
-    orderNumber: string = "M" + Math.random().toString();
+    orderNumber: string = "M" + Math.random().toString().substr(2, 4);
     orderStatus?: any;
     orderDate: Date = new Date();
     totalAmount: number = 0;
