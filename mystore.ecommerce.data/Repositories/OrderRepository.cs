@@ -52,14 +52,6 @@ namespace mystore.ecommerce.data.Repositories
             }
         }
 
-        public Order AddOrder(Order order)
-        {
-            order.Id = Guid.NewGuid().ToString();
-            var savedOrder =_context.Add(order);
-            _context.SaveChanges();
-            return savedOrder.Entity;
-        }
-
         public IEnumerable<Order> GetAllOrdersByUser(string username)
         {
             try

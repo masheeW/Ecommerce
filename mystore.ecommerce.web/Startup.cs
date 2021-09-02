@@ -73,6 +73,8 @@ namespace mystore.ecommerce.web
                });
 
             services.AddScoped<IProductManager, ProductManager>();
+            services.AddScoped<IOrderManager, OrderManager>();
+
 
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();

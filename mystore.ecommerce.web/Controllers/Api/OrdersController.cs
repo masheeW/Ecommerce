@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using mystore.ecommerce.contracts.managers;
 using mystore.ecommerce.contracts.Repositories;
 using mystore.ecommerce.dbcontext.Models;
 using mystore.ecommerce.entities.Models;
@@ -19,14 +20,14 @@ namespace mystore.ecommerce.web.Controllers.Api
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class OrdersController : Controller
     {
-        private readonly IOrderRepository _orderRepository;
+        private readonly IOrderManager _orderManager;
         private readonly ILogger<OrdersController> _logger;
         private readonly IMapper _mapper;
         UserManager<StoreUser> _userManager;
 
-        public OrdersController(IOrderRepository orderRepository, ILogger<OrdersController> logger, IMapper mapper, UserManager<StoreUser> userManager)
+        public OrdersController(IOrderManager orderManager, ILogger<OrdersController> logger, IMapper mapper, UserManager<StoreUser> userManager)
         {
-            _orderRepository = orderRepository;
+            _orderManager = orderManager;
             _logger = logger;
             _mapper = mapper;
             _userManager = userManager;
@@ -38,7 +39,7 @@ namespace mystore.ecommerce.web.Controllers.Api
             try
             {
                 var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
-                var results = _orderRepository.GetAllOrdersByUser(currentUser.Id);
+                var results = _orderManager.GetAllOrdersByUser(currentUser.Id);
                 
                 return Ok(results);
                 
@@ -56,7 +57,7 @@ namespace mystore.ecommerce.web.Controllers.Api
         {
             try
             {
-                var order = _orderRepository.GetOrderById(Id);
+                var order = _orderManager.GetOrderById(Id);
 
                 if(order != null)
                 {
@@ -81,34 +82,12 @@ namespace mystore.ecommerce.web.Controllers.Api
             {                
                 if (ModelState.IsValid)
                 {
-                    var newOrder = _mapper.Map<Order>(model);
-                 
-                    newOrder.Id = Guid.NewGuid().ToString();
-
-                    foreach(var item in model.OrderItems)
-                    {
-                        var newItem = _mapper.Map<OrderItem>(item);
-                        newItem.Id = Guid.NewGuid().ToString();
-                        newItem.Order = newOrder;
-                        newOrder.OrderItem.Add(newItem);
-                    }
-
-                    if (newOrder.OrderDate == DateTime.MinValue)
-                    {
-                        newOrder.OrderDate = DateTime.Now;
-                    };
-
                     var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
-                    newOrder.Customer = currentUser.Id;
-                    newOrder.CreatedBy = currentUser.Id;
-                    newOrder.CreatedDate = DateTime.Now;
-                    newOrder.OrderStatus = "Created";
 
-                   _orderRepository.AddEntity(newOrder);
-                    if (_orderRepository.SaveAll())
-                    {
-                        return Created($"/api/orders/{newOrder.Id}", _mapper.Map<OrderModel>(newOrder));
-                    }
+                    var newOrder =_orderManager.SaveOrder(model, currentUser);
+
+                    return Created($"/api/orders/{newOrder.Id}", _mapper.Map<OrderModel>(newOrder));
+
                 }
                 else
                 {

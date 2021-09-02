@@ -1,6 +1,5 @@
 ﻿
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -8,7 +7,6 @@ using Microsoft.IdentityModel.Tokens;
 using mystore.ecommerce.dbcontext.Models;
 using mystore.ecommerce.web.Models;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -35,7 +33,7 @@ namespace mystore.ecommerce.web.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Shop", "App");
+                return RedirectToAction("Index", "App");
             }
 
             return View();

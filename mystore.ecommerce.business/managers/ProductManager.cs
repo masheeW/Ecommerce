@@ -29,7 +29,7 @@ namespace mystore.ecommerce.business.managers
         {
             try
             {
-                return  _mapper.Map < IEnumerable<Product>, IEnumerable<ProductModel>>(_productRepository.GetAllProducts());
+                return  _mapper.Map <IEnumerable<Product>, IEnumerable<ProductModel>>(_productRepository.GetAllProducts());
             }
             catch (Exception ex)
             {
