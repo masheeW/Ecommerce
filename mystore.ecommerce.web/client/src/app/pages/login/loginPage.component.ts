@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { Store } from "../../services/store.service";
 import { LoginRequest } from "../../shared/LoginResults";
 
@@ -10,7 +10,7 @@ import { LoginRequest } from "../../shared/LoginResults";
 })
 export class LoginPage implements OnInit {
    
-    LoginStatus$ = new BehaviorSubject<boolean>(false);
+    loginStatus!: Observable<boolean>;
 
     public creds: LoginRequest = {
         username: "",
@@ -22,15 +22,9 @@ export class LoginPage implements OnInit {
     constructor(public store: Store, private router: Router) { }
 
 
-    ngOnInit(): void {
-        this.store.globalStateChanged.subscribe((state) => {
-            this.LoginStatus$.next(state.loggedInStatus);
-        });
-
-
-        if (this.LoginStatus$.getValue()) {
-            this.router.navigate(['/']);
-        }
+    ngOnInit() {
+        this.loginStatus = this.store.loginStatus;
+        this.store.checkLoginStatus();
     }
 
 

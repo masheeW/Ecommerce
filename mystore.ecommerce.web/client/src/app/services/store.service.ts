@@ -1,6 +1,5 @@
 ﻿import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { ObservableStore } from "@codewithdan/observable-store";   ///TODO: try removing this
 import { BehaviorSubject, Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { StoreState } from "../interfaces/store-state";
@@ -9,26 +8,23 @@ import { Order, OrderItem } from "../shared/Order";
 import { Product } from "../shared/Product";
 
 @Injectable()
-export class Store extends ObservableStore<StoreState>{
+export class Store {
  
 
-    private loginStatus = new BehaviorSubject<boolean>(this.checkLoginStatus());
+    private _loginStatus = new BehaviorSubject<boolean>(this.checkLoginStatus());
+    readonly loginStatus = this._loginStatus.asObservable();
 
-
-    constructor(private http: HttpClient) {
-        super({ logStateChanges: false, trackStateHistory: false });
-
-        this.loginStatus.subscribe((result) => {
-            this.setState({ loggedInStatus: result }, 'LOGGED_IN_STATUS');
-        });
-    }
+    constructor(private http: HttpClient) { }
     public products: Product[] = [];
     public order: Order = new Order();
     public token = "";
     public expiration = new Date();
-    public isAuthenticated = false;
+    public isAuthenticated!: boolean;
     public message = "";
 
+    get getLogin() {
+        return this._loginStatus.asObservable();
+    }
 
     checkLoginStatus(): boolean {
         return this.isAuthenticated;
@@ -51,8 +47,12 @@ export class Store extends ObservableStore<StoreState>{
             .pipe(map(data => {
                 this.token = data.token;
                 this.expiration = data.expiration;
+
                 this.isAuthenticated = data.IsAuthenticated;
+
+                this._loginStatus.next(Object.assign({}, this.isAuthenticated));
             }));
+
     }
 
 
@@ -61,7 +61,10 @@ export class Store extends ObservableStore<StoreState>{
             .pipe(map(data => {
                 this.token = data.token;
                 this.expiration = data.expiration;
+
                 this.isAuthenticated = data.IsAuthenticated;
+
+                this._loginStatus.next(Object.assign({}, this.isAuthenticated));
             }));
 
     }

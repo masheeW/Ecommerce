@@ -1,6 +1,7 @@
 ﻿import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject, Observable } from "rxjs";
+import { StoreState } from "../../interfaces/store-state";
 import { Store } from "../../services/store.service";
 
 @Component({
@@ -11,17 +12,24 @@ import { Store } from "../../services/store.service";
 
 export class NavMenu implements OnInit {
 
-    LoginStatus$ = new BehaviorSubject<boolean>(false);
+    loginStatus!: boolean;
 
     constructor(private store: Store, private router: Router) {
     }
 
-
-    ngOnInit(): void {
-        this.store.globalStateChanged.subscribe((state) => {
-            this.LoginStatus$.next(state.loggedInStatus);
+    ngOnInit() {
+        this.store.loginStatus.subscribe(updatedval => {
+            this.loginStatus = updatedval;
         });
 
+        //this.loginStatus = this.store.loginStatus;
+
+       // this.loginStatus = this.store.loginStatus;
+        this.store.checkLoginStatus();
+    }
+
+    logout(): void {
+        window.location.reload();
     }
 
 }

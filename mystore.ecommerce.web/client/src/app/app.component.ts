@@ -7,9 +7,6 @@ import { Store } from './services/store.service';
   styles: []
 })
 export class AppComponent {
-    isAuthenticated = this.store.isAuthenticated;
-    title = 'Shop';
-
 
     constructor(public store: Store) {
     }

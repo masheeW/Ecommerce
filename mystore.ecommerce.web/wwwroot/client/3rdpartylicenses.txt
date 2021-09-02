@@ -13,9 +13,6 @@ MIT
 @angular/router
 MIT
 
-@codewithdan/observable-store
-MIT
-
 rxjs
 Apache-2.0
                                Apache License
