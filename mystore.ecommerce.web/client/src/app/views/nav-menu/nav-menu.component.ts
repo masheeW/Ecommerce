@@ -22,9 +22,6 @@ export class NavMenu implements OnInit {
             this.loginStatus = updatedval;
         });
 
-        //this.loginStatus = this.store.loginStatus;
-
-       // this.loginStatus = this.store.loginStatus;
         this.store.checkLoginStatus();
     }
 

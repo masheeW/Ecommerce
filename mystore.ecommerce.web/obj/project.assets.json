@@ -2227,6 +2227,9 @@
       "mystore.ecommerce.entities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "mystore.ecommerce.dbcontext": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/mystore.ecommerce.entities.dll": {}
         },

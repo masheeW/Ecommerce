@@ -19,7 +19,7 @@
 
             <div class="form-group">
                 <label asp-for="Category">Category:</label>
-                <input asp-for="Category" class="form-control" />
+                <select asp-for="Category" asp-items="@(new SelectList(ViewBag.Categories,"Id","CategoryName"))"  class="form-control"></select>
                 <span asp-validation-for="Category" class="text-danger"></span>
             </div>
 

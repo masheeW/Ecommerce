@@ -29,7 +29,7 @@ namespace mystore.ecommerce.data.Mappers
                 .ForMember(m=>m.Product, opt=>opt.Ignore());
 
             CreateMap<Product, ProductModel>()
-                .ReverseMap();
+                .ForMember(p => p.Category, ex => ex.MapFrom(i => i.CategoryNavigation.CategoryName));
 
         }
     }

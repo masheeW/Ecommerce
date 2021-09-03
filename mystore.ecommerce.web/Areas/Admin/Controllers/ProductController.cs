@@ -37,6 +37,8 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
                 var model = new ProductViewModel();
                 model.Products = _productManager.GetAllProducts();
 
+                ViewBag.Categories = _productManager.GetProductCategories();
+
                 return View(model);
             }
             catch(Exception ex)
@@ -90,6 +92,7 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
                 return View(productModel);
             }
 
+            ViewBag.Categories = _productManager.GetProductCategories();
             return Index();
         }
 

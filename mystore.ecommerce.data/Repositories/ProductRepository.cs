@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using mystore.ecommerce.contracts.Repositories;
 using mystore.ecommerce.dbcontext;
 using mystore.ecommerce.dbcontext.Models;
@@ -26,7 +27,7 @@ namespace mystore.ecommerce.data.Repositories
         {
             try
             {
-                return _context.Product.ToList();               
+                return _context.Product.Include(p=>p.CategoryNavigation).ToList();               
             }
             catch (Exception ex)
             {
@@ -39,7 +40,20 @@ namespace mystore.ecommerce.data.Repositories
         {
             try
             {
-                return _context.Product.Where(p=>p.Category == categpry).ToList();
+                return _context.Product.Where(p=>p.CategoryNavigation.CategoryName == categpry).ToList();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{ex.Message}");
+                return null;
+            }
+        }
+
+        public IEnumerable<ProductCategory> GetProductCategories()
+        {
+            try
+            {
+                return _context.ProductCategory.ToList();
             }
             catch (Exception ex)
             {

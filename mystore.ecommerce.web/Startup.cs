@@ -12,12 +12,15 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using mystore.ecommerce.business.managers;
+using mystore.ecommerce.business.mappers;
 using mystore.ecommerce.contracts.managers;
+using mystore.ecommerce.contracts.mappers;
 using mystore.ecommerce.contracts.Repositories;
 using mystore.ecommerce.data.Mappers;
 using mystore.ecommerce.data.Repositories;
 using mystore.ecommerce.dbcontext;
 using mystore.ecommerce.dbcontext.Models;
+using mystore.ecommerce.entities.Models;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -75,6 +78,7 @@ namespace mystore.ecommerce.web
             services.AddScoped<IProductManager, ProductManager>();
             services.AddScoped<IOrderManager, OrderManager>();
 
+            services.AddScoped<IMapper<ProductModel, Product>, ProductDetailMapper>();
 
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();

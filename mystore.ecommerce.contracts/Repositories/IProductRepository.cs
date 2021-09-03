@@ -10,7 +10,7 @@ namespace mystore.ecommerce.contracts.Repositories
     public interface IProductRepository
     {
         IEnumerable<Product> GetAllProducts();
-
+        IEnumerable<ProductCategory> GetProductCategories();
         IEnumerable<Product> GetProductsByCategory(string categpry);
         void AddEntity(object entity);
         bool SaveAll();

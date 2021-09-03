@@ -1,4 +1,5 @@
-﻿using mystore.ecommerce.entities.Models;
+﻿using mystore.ecommerce.dbcontext.Models;
+using mystore.ecommerce.entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,6 @@ namespace mystore.ecommerce.contracts.managers
         IEnumerable<ProductModel> GetAllProducts();
 
         void SaveProduct(ProductModel product);
+        IEnumerable<ProductCategory> GetProductCategories();
     }
 }
