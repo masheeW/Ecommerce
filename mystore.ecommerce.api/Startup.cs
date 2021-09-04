@@ -74,7 +74,7 @@ namespace mystore.ecommerce.api
                 options.AddPolicy("CorsPolicy",
                     builder =>
                     {
-                        builder.WithOrigins("https://localhost:44366/")
+                        builder.WithOrigins("*")
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                     });
