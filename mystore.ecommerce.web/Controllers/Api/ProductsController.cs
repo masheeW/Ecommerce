@@ -35,9 +35,9 @@ namespace mystore.ecommerce.web.Controllers.Api
         {
             try
             {
-                var results = _productManager.GetAllProducts();
+                var results = await _productManager.GetAllProducts();
 
-                return Ok(results);
+                return Ok(results.Payload);
 
             }
             catch (Exception ex)

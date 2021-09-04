@@ -9,10 +9,12 @@ namespace mystore.ecommerce.contracts.Repositories
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> GetAllProducts();
+        Task<IEnumerable<Product>> GetAllProducts();
         IEnumerable<ProductCategory> GetProductCategories();
         IEnumerable<Product> GetProductsByCategory(string categpry);
-        void AddEntity(object entity);
+        Product AddProduct(Product product);
         bool SaveAll();
+        Product GetProductById(string id);
+        Product UpdateProduct(Product productMapper);
     }
 }

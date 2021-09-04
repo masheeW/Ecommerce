@@ -6,8 +6,6 @@ using mystore.ecommerce.dbcontext.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace mystore.ecommerce.data.Repositories
 {
@@ -56,7 +54,7 @@ namespace mystore.ecommerce.data.Repositories
         {
             try
             {
-                return _context.Order.Where(o => o.Customer == username).Include(o => o.OrderItem).ThenInclude(o=>o.Product).ToList();
+                return _context.Order.Where(o => o.Customer == username).Include(o => o.OrderItem).ThenInclude(o => o.Product).ToList();
             }
             catch (Exception ex)
             {

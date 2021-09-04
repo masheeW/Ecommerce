@@ -60,7 +60,7 @@ namespace mystore.ecommerce.web.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Shop", "App");
+                        return RedirectToAction("Index", "App");
                     }
                 }
 
@@ -75,14 +75,14 @@ namespace mystore.ecommerce.web.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Shop", "App");
+            return RedirectToAction("Index", "App", new { Area = "" });
         }
 
         public IActionResult Register()
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Shop", "App");
+                return RedirectToAction("Index", "App");
             }
 
             return View();

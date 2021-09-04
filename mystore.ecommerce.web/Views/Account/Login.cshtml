@@ -1,7 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@model LoginViewModel
+﻿@model LoginViewModel
 @{
     ViewBag.Title = "Login";
 }
@@ -9,29 +6,51 @@
     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
 }
-<div class="row">
-    <div class="col-md-6 offset-md-3">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly"></div>
-            <div class="form-group">
-                <label asp-for="UserName">Username</label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-warning"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password">Password</label>
-                <input asp-for="Password" type="password" class="form-control" />
-                <span asp-validation-for="Password"></span>
-            </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input asp-for="RemeberMe" type="checkbox" class="form-check-input" />
-                    <label asp-for="RemeberMe" class="form-check-label">Remember Me?</label>
+@*<div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="form-group">
+                    <label asp-for="UserName">Username25</label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName" class="text-warning"></span>
                 </div>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="login" class="btn btn-success" />
-            </div>
-        </form>
-    </div>
+                <div class="form-group">
+                    <label asp-for="Password">Password</label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input asp-for="RemeberMe" type="checkbox" class="form-check-input" />
+                        <label asp-for="RemeberMe" class="form-check-label">Remember Me?</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="login" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>*@
+
+<div id="logreg-forms">
+    <form method="post" class="form-signin">
+        <div asp-validation-summary="ModelOnly"></div>
+        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
+
+        <input type="email" asp-for="UserName" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        <input type="password" asp-for="Password" id="inputPassword" class="form-control" placeholder="Password" required="">
+
+        <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
+        <a href="#" id="forgot_pswd">Forgot password?</a>
+        <hr>
+        <span asp-validation-for="UserName" class="text-warning"></span>
+        <span asp-validation-for="Password" class="text-warning"></span>
+        <!-- <p>Don't have an account!</p>  -->
+        <a class="btn btn-primary" asp-controller="Account" asp-action="Register" id="btn-signup"><i class="fas fa-user-plus"></i> Sign up New Account</a>
+    </form>
+
+
+    <br>
+
 </div>

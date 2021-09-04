@@ -2,6 +2,7 @@
 using mystore.ecommerce.contracts.Repositories;
 using mystore.ecommerce.dbcontext.Models;
 using mystore.ecommerce.entities.Models;
+using mystore.ecommerce.utility.common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace mystore.ecommerce.business.mappers
                 Id = product.Id,
                 Category = product.Category,
                 CategoryNavigation = categoryNavigation,
-                CreatedBy = "Admin",
+                CreatedBy = Constants.UserRole.Admin,
                 CreatedDate = DateTime.Now,
                 ImageName = product.ImageName,
                 ProductName = product.ProductName,

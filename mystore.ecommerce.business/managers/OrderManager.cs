@@ -4,6 +4,7 @@ using mystore.ecommerce.contracts.managers;
 using mystore.ecommerce.contracts.Repositories;
 using mystore.ecommerce.dbcontext.Models;
 using mystore.ecommerce.entities.Models;
+using mystore.ecommerce.utility.common;
 using System;
 using System.Collections.Generic;
 
@@ -65,7 +66,7 @@ namespace mystore.ecommerce.business.managers
                 newOrder.Customer = user.Id;
                 newOrder.CreatedBy = user.Id;
                 newOrder.CreatedDate = DateTime.Now;
-                newOrder.OrderStatus = "New";
+                newOrder.OrderStatus = Constants.OrderStatus.New;
 
                 _orderRepository.AddEntity(newOrder);
                 if (_orderRepository.SaveAll())

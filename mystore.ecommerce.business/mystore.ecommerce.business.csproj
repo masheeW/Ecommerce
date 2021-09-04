@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\mystore.ecommerce.contracts\mystore.ecommerce.contracts.csproj" />
     <ProjectReference Include="..\mystore.ecommerce.entities\mystore.ecommerce.entities.csproj" />
+    <ProjectReference Include="..\mystore.ecommerce.utility\mystore.ecommerce.utility.csproj" />
   </ItemGroup>
 
 </Project>

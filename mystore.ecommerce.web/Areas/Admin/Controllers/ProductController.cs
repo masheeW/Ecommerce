@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using mystore.ecommerce.contracts.managers;
 using mystore.ecommerce.entities.Models;
-using mystore.ecommerce.web.Areas.Admin.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,33 +29,28 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
             _productManager = productManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            try
+            var products = await _productManager.GetAllProducts();
+            if (!products.HasError)
             {
-                var model = new ProductViewModel();
-                model.Products = _productManager.GetAllProducts();
-
-                ViewBag.Categories = _productManager.GetProductCategories();
-
-                return View(model);
+                return View(products.Payload);
             }
-            catch(Exception ex)
-            {
-                _logger.LogError(ex.Message);
-                throw;
-            }
+            return View(null);
         }
 
+        public virtual ActionResult Add()
+        {
+            ViewBag.Categories = _productManager.GetProductCategories().Payload;
+            return View(new ProductModel());
+        }
 
         [HttpPost]
-        public IActionResult Index(ProductViewModel productModel, IFormFile postedFile)
+        [AutoValidateAntiforgeryToken]
+        public virtual ActionResult Add(ProductModel productModel, IFormFile postedFile)
         {
             try
             {
-                string wwwPath = this.Environment.WebRootPath;
-                string contentPath = this.Environment.ContentRootPath;
-
                 string path = Path.Combine(this.Environment.WebRootPath, "img");
                 if (!Directory.Exists(path))
                 {
@@ -73,27 +67,52 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
                     }
                 }
 
-                var newProduct = new ProductModel()
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    ProductName = productModel.ProductName,
-                    Category = productModel.Category,
-                    Price = productModel.Price,
-                    Size = productModel.Size,
-                    ImageName = postedFile.FileName
-                };
+                //var newProduct = new ProductModel()
+                //{
+                //    Id = Guid.NewGuid().ToString(),
+                //    ProductName = productModel.ProductName,
+                //    Category = productModel.Category,
+                //    Price = productModel.Price,
+                //    Size = productModel.Size,
+                //    ImageName = postedFile.FileName
+                //};
 
-                _productManager.SaveProduct(newProduct);
-                
+                productModel.Id = Guid.NewGuid().ToString();
+                productModel.ImageName = postedFile.FileName;
+
+                var savedProduct = _productManager.SaveProduct(productModel);
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
                 return View(productModel);
             }
 
-            ViewBag.Categories = _productManager.GetProductCategories();
-            return Index();
+            return View(productModel);
+        }
+
+        public virtual ActionResult Edit(string id)
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
+                var response = _productManager.GetProductById(id);
+
+                if (response != null)
+                {
+                    ViewBag.Categories = _productManager.GetProductCategories().Payload;
+
+                    return View(response.Payload);
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public virtual ActionResult Edit(ProductModel productViewModel)
+        {
+            return View(productViewModel);
         }
 
     }

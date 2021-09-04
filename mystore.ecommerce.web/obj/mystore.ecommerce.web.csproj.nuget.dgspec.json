@@ -39,6 +39,9 @@
               },
               "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
                 "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
+              },
+              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj": {
+                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj"
               }
             }
           }
@@ -112,6 +115,9 @@
               },
               "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
                 "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
+              },
+              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj": {
+                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj"
               }
             }
           }
@@ -345,6 +351,66 @@
                 "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj"
               }
             }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj",
+        "projectName": "mystore.ecommerce.utility",
+        "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj",
+        "packagesPath": "C:\\Users\\maheshikaw.KEELLS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\maheshikaw.KEELLS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://jkcs-projects.pkgs.visualstudio.com/KeellsMobileApp/_packaging/jkit-smart-retail-feed/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
           }
         },
         "warningProperties": {

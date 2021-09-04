@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="client\src\app\pages\checkout\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\img\" />

@@ -2169,7 +2169,8 @@
         "dependencies": {
           "AutoMapper": "10.1.1",
           "mystore.ecommerce.contracts": "1.0.0",
-          "mystore.ecommerce.entities": "1.0.0"
+          "mystore.ecommerce.entities": "1.0.0",
+          "mystore.ecommerce.utility": "1.0.0"
         },
         "compile": {
           "bin/placeholder/mystore.ecommerce.business.dll": {}
@@ -2183,7 +2184,8 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "mystore.ecommerce.dbcontext": "1.0.0",
-          "mystore.ecommerce.entities": "1.0.0"
+          "mystore.ecommerce.entities": "1.0.0",
+          "mystore.ecommerce.utility": "1.0.0"
         },
         "compile": {
           "bin/placeholder/mystore.ecommerce.contracts.dll": {}
@@ -2235,6 +2237,16 @@
         },
         "runtime": {
           "bin/placeholder/mystore.ecommerce.entities.dll": {}
+        }
+      },
+      "mystore.ecommerce.utility/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/mystore.ecommerce.utility.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/mystore.ecommerce.utility.dll": {}
         }
       }
     }
@@ -7593,6 +7605,11 @@
       "type": "project",
       "path": "../mystore.ecommerce.entities/mystore.ecommerce.entities.csproj",
       "msbuildProject": "../mystore.ecommerce.entities/mystore.ecommerce.entities.csproj"
+    },
+    "mystore.ecommerce.utility/1.0.0": {
+      "type": "project",
+      "path": "../mystore.ecommerce.utility/mystore.ecommerce.utility.csproj",
+      "msbuildProject": "../mystore.ecommerce.utility/mystore.ecommerce.utility.csproj"
     }
   },
   "projectFileDependencyGroups": {
