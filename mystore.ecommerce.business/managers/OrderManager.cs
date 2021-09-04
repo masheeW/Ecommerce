@@ -68,7 +68,7 @@ namespace mystore.ecommerce.business.managers
                 newOrder.CreatedDate = DateTime.Now;
                 newOrder.OrderStatus = Constants.OrderStatus.New;
 
-                _orderRepository.AddEntity(newOrder);
+                _orderRepository.AddOrder(newOrder);
                 if (_orderRepository.SaveAll())
                 {
                     return newOrder;

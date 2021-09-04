@@ -26,7 +26,7 @@ namespace mystore.ecommerce.data.Repositories
         {
             try
             {
-                return _context.Order.Include(o => o.OrderItem).ToList();
+                return _context.Order.ToList();
             }
             catch (Exception ex)
             {
@@ -40,7 +40,7 @@ namespace mystore.ecommerce.data.Repositories
             try
             {
                 return _context.Order
-                    .Where(o => o.Id == Id)
+                    .Where(o => o.Id == Id).Include(o=>o.OrderItem).ThenInclude(p=>p.Product)
                     .FirstOrDefault();
             }
             catch (Exception ex)
@@ -54,7 +54,7 @@ namespace mystore.ecommerce.data.Repositories
         {
             try
             {
-                return _context.Order.Where(o => o.Customer == username).Include(o => o.OrderItem).ThenInclude(o => o.Product).ToList();
+                return _context.Order.Where(o => o.Customer == username).ToList();
             }
             catch (Exception ex)
             {
@@ -69,9 +69,19 @@ namespace mystore.ecommerce.data.Repositories
             return _context.SaveChanges() > 0;
         }
 
-        public void AddEntity(object entity)
+        public Order AddOrder(Order order)
         {
-            _context.Add(entity);
+            try
+            {
+                _context.Add(order);
+                _context.SaveChanges();
+                return order;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{ex.Message}");
+                return null;
+            }
         }
     }
 }
