@@ -171,5 +171,6 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 packages
+obj
 .vs
 /mystore.ecommerce.database/mystore.ecommerce.database.jfm
