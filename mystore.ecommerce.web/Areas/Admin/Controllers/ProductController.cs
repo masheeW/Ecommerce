@@ -15,6 +15,7 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
 
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
+    [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
     public class ProductController : Controller
     {
         private IHostingEnvironment Environment;
@@ -46,7 +47,7 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public virtual ActionResult Add(ProductViewModel productModel, IFormFile postedFile)
+        public virtual ActionResult Add(ProductModel productModel, IFormFile postedFile)
         {
             try
             {
@@ -106,9 +107,28 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public virtual ActionResult Edit(ProductViewModel productViewModel)
+        public virtual ActionResult Edit(ProductModel productModel, IFormFile postedFile)
         {
-            return View(productViewModel);
+            string path = Path.Combine(this.Environment.WebRootPath, "img");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            if (postedFile != null)
+            {
+                string fileName = Path.GetFileName(postedFile.FileName);
+                using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                    ViewBag.Message = fileName;
+                }
+            }
+            productModel.ImageName = postedFile.FileName;
+
+            var savedProduct = _productManager.UpdateProduct(productModel);
+
+            return View(productModel);
         }
 
     }

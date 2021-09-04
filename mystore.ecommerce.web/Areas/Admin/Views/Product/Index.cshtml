@@ -1,10 +1,11 @@
 ﻿@model IList<mystore.ecommerce.entities.Models.ProductModel>
+@{ ViewData["Title"] = "All Product"; }
 @section Scripts {
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
 }
 <h3>All Products</h3>
-<a asp-action="Add" asp-controller="Product" class="btn btn-primary right" ><i class="fa fa-plus"></i>Add New</a>
+<a asp-action="Add" asp-controller="Product" class="btn btn-primary right"><i class="fa fa-plus"></i>Add New</a>
 <table class="table table-hover">
     <thead>
         <tr>
@@ -18,13 +19,13 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>@item.ProductName</td>
-            <td>@item.Category</td>
-            <td>@item.Size</td>
-            <td>@item.Price</td>
-            <td><a asp-area="Admin" asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
-        </tr>
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.Category</td>
+                <td>@item.Size</td>
+                <td>@item.Price</td>
+                <td><a asp-area="Admin" asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
+            </tr>
         }
 
 

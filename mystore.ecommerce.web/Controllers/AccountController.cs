@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace mystore.ecommerce.web.Controllers
 {
+    [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
     public class AccountController : Controller
     {
         private readonly ILogger<AccountController> _logger;
@@ -29,8 +30,10 @@ namespace mystore.ecommerce.web.Controllers
             _userManager = userManager;
             _config = configuration;
         }
-        public IActionResult Login()
+        [HttpGet]
+        public IActionResult Login(string returnUrl = null)
         {
+            ViewData["ReturnUrl"] = returnUrl;
             if (User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Index", "App");
@@ -40,7 +43,7 @@ namespace mystore.ecommerce.web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
             if (ModelState.IsValid)
             {
@@ -50,9 +53,9 @@ namespace mystore.ecommerce.web.Controllers
            
                 if (result.Succeeded)
                 {
-                    if (Request.Query.Keys.Contains("ReturnUrl"))
+                    if (!string.IsNullOrEmpty(returnUrl))
                     {
-                        return Redirect(Request.Query["ReturnUrl"].First());
+                        return RedirectToLocal(returnUrl);
                     }
                     else if(await _userManager.IsInRoleAsync(user,"Admin"))
                     {
@@ -63,8 +66,6 @@ namespace mystore.ecommerce.web.Controllers
                         return RedirectToAction("Shop", "App");
                     }
                 }
-
-               
             }
 
             ModelState.AddModelError("", "Failed to login");
@@ -75,7 +76,7 @@ namespace mystore.ecommerce.web.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Shop", "App",new { Area=""});
+            return RedirectToAction("Index", "App",new { Area=""});
         }
 
         public IActionResult Register()
@@ -166,6 +167,14 @@ namespace mystore.ecommerce.web.Controllers
              
             }
             return BadRequest();
+        }
+
+        private IActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+                return Redirect(returnUrl);
+            else
+                return RedirectToAction("Login", "Account");
         }
 
     }

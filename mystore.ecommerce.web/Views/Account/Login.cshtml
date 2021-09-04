@@ -2,42 +2,13 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @model LoginViewModel
-@{
-    ViewBag.Title = "Login";
-}
+@{ ViewData["Title"] = "Login"; }
 @section Scripts{
     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
 }
-@*<div class="row">
-    <div class="col-md-6 offset-md-3">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly"></div>
-            <div class="form-group">
-                <label asp-for="UserName">Username25</label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-warning"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password">Password</label>
-                <input asp-for="Password" type="password" class="form-control" />
-                <span asp-validation-for="Password"></span>
-            </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input asp-for="RemeberMe" type="checkbox" class="form-check-input" />
-                    <label asp-for="RemeberMe" class="form-check-label">Remember Me?</label>
-                </div>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="login" class="btn btn-success" />
-            </div>
-        </form>
-    </div>
-</div>*@
-
 <div id="logreg-forms">
-    <form method="post" class="form-signin">
+    <form method="post" asp-action="Login" asp-route-returnUrl="@ViewData["ReturnUrl"]" class="form-signin">
         <div asp-validation-summary="ModelOnly"></div>
         <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
 
