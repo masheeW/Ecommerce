@@ -1,2 +1,14 @@
-﻿body {
+﻿.store-logo {
+    padding:10px;
+}
+.cart-link {
+    background-color: white;
+    color: #157347;
+    font-size: 23px;
+}
+.fill-height {
+    min-height: 100%;
+}
+.bg-admin{
+    background-color:midnightblue !important;
 }

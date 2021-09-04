@@ -1,3 +1,7 @@
 ﻿.checkout-thumb {
   max-width: 100px;
 }
+.empty-cart {
+    color: lightgrey;
+    text-align: center;
+}

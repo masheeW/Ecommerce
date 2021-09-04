@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Store } from './services/store.service';
 
 @Component({
   selector: 'the-shop',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'Shop';
+
+    constructor(public store: Store) {
+    }
 }

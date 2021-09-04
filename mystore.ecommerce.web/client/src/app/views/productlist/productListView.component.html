@@ -1,0 +1,17 @@
+﻿<div class="row text-center">
+    <div *ngFor="let p of store.products" class="card mb-4 box-shadow col-md-3">
+        <div class="rounded p-1 fill-height">
+        <img src="/img/{{ p.imageName }}" class="img-fluid" alt="{{ p.productName }}" />
+        <ul class="list-unstyled mt-3 mb-4">
+            <li>{{ p.category }}</li>
+            <li><h4 class="my-0 font-weight-normal">{{ p.productName }}</h4></li>
+            <li>{{ p.size }}</li>
+            <li><p class="p-1"><strong> {{ p.price | currency:'LKR '  }} </strong></p></li>
+        </ul>
+        <div class="">
+            <button id="buyButton" class="btn btn-success btn-block mt-auto" (click)="store.addToOrder(p)">Add to cart</button>
+        </div>
+    </div>
+
+    </div>
+</div>
