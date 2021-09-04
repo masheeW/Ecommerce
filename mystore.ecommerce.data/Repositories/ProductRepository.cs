@@ -1,16 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using mystore.ecommerce.contracts.Repositories;
-using mystore.ecommerce.dbcontext;
-using mystore.ecommerce.dbcontext.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace mystore.ecommerce.data.Repositories
 {
+    using mystore.ecommerce.contracts.Repositories;
+    using mystore.ecommerce.dbcontext;
+    using mystore.ecommerce.dbcontext.Models;
+
     public class ProductRepository : IProductRepository
     {
         private readonly EcommercedbContext _context;
@@ -23,11 +23,24 @@ namespace mystore.ecommerce.data.Repositories
             _logger = logger;
         }
 
-        public IEnumerable<Product> GetAllProducts()
+        public async Task<IEnumerable<Product>> GetAllProducts()
         {
             try
             {
-                return _context.Product.Include(p=>p.CategoryNavigation).ToList();               
+                return await _context.Product.Include(p => p.CategoryNavigation).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{ex.Message}");
+                return null;
+            }
+        }
+
+        public Product GetProductById(string id)
+        {
+            try
+            {
+                return _context.Product.FirstOrDefault(p => p.Id.Trim() == id.Trim());
             }
             catch (Exception ex)
             {
@@ -40,7 +53,7 @@ namespace mystore.ecommerce.data.Repositories
         {
             try
             {
-                return _context.Product.Where(p=>p.CategoryNavigation.CategoryName == categpry).ToList();
+                return _context.Product.Where(p => p.CategoryNavigation.CategoryName == categpry).ToList();
             }
             catch (Exception ex)
             {
@@ -67,9 +80,34 @@ namespace mystore.ecommerce.data.Repositories
             return _context.SaveChanges() > 0;
         }
 
-        public void AddEntity(object entity)
+        public Product AddProduct(Product product)
         {
-            _context.Add(entity);
+            try
+            {
+                _context.Add(product);
+                _context.SaveChanges();
+                return product;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{ex.Message}");
+                return null;
+            }
+        }
+
+        public Product UpdateProduct(Product product)
+        {
+            try
+            {
+                _context.Update(product);
+                _context.SaveChanges();
+                return product;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{ex.Message}");
+                return null;
+            }
         }
     }
 }

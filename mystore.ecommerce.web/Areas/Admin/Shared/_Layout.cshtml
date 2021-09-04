@@ -15,42 +15,40 @@
 </head>
 <body>
     <header class="container">
-    
-        <nav class="navbar navbar-dark bg-dark navbar-expand-md bg-grey">
-                       
-            <h1 class="navbar-brand"><i class="fas fa-store store-logo"></i>My Store</h1>
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#theMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div id="theMenu" class="navbar-collapse collapse">
-                <ul class="navbar-nav">
 
+        
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-warning">
+        <a class="navbar-brand" href="#"><i class="fas fa-store store-logo"></i>My Store</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto topnav">
+                @if (User.Identity.IsAuthenticated)
+                {
                     <li class="nav-item">
-                        <a asp-controller="App" asp-action="Shop" class="nav-link">Home</a>
+                        <a asp-controller="Account" asp-action="Logout" class="nav-link">Logout</a>
                     </li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li class="nav-item">
-                            <a asp-controller="Account" asp-action="Logout" class="nav-link">Logout</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item">
-                            <a asp-controller="Account" asp-action="Login" class="nav-link">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a asp-controller="Account" asp-action="Register" class="nav-link">Register</a>
-                        </li>
-                    }
-                </ul>
-            </div>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a asp-controller="Account" class="nav-link btn btn-primary text-white" asp-action="Login" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-danger text-white"  asp-controller="Account" asp-action="Register" class="nav-link">Register</a>
+                    </li>
+                }
+               
+            </ul>
+        </div>
         </nav>
     </header>
     <section class="container">
         @RenderBody()
     </section>
-    <footer class="text-center">Copyright 2021 My Store</footer>
+    <footer class="text-center">Copyright @DateTime.Now.Year My Store</footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js" ></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" ></script>

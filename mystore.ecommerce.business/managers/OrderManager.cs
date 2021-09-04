@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Logging;
+using mystore.ecommerce.business.utility;
 using mystore.ecommerce.contracts.managers;
 using mystore.ecommerce.contracts.Repositories;
 using mystore.ecommerce.dbcontext.Models;
@@ -65,7 +66,7 @@ namespace mystore.ecommerce.business.managers
                 newOrder.Customer = user.Id;
                 newOrder.CreatedBy = user.Id;
                 newOrder.CreatedDate = DateTime.Now;
-                newOrder.OrderStatus = "New";
+                newOrder.OrderStatus = Constants.New;
 
                 _orderRepository.AddEntity(newOrder);
                 if (_orderRepository.SaveAll())

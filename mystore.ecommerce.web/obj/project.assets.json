@@ -2163,12 +2163,28 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "mystore.ecommerce.business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "AutoMapper": "10.1.1",
+          "mystore.ecommerce.contracts": "1.0.0",
+          "mystore.ecommerce.entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/mystore.ecommerce.business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/mystore.ecommerce.business.dll": {}
+        }
+      },
       "mystore.ecommerce.contracts/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "mystore.ecommerce.dbcontext": "1.0.0",
-          "mystore.ecommerce.entities": "1.0.0"
+          "mystore.ecommerce.entities": "1.0.0",
+          "mystore.ecommerce.utility": "1.0.0"
         },
         "compile": {
           "bin/placeholder/mystore.ecommerce.contracts.dll": {}
@@ -2220,6 +2236,16 @@
         },
         "runtime": {
           "bin/placeholder/mystore.ecommerce.entities.dll": {}
+        }
+      },
+      "mystore.ecommerce.utility/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/mystore.ecommerce.utility.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/mystore.ecommerce.utility.dll": {}
         }
       }
     }
@@ -7554,6 +7580,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "mystore.ecommerce.business/1.0.0": {
+      "type": "project",
+      "path": "../mystore.ecommerce.business/mystore.ecommerce.business.csproj",
+      "msbuildProject": "../mystore.ecommerce.business/mystore.ecommerce.business.csproj"
+    },
     "mystore.ecommerce.contracts/1.0.0": {
       "type": "project",
       "path": "../mystore.ecommerce.contracts/mystore.ecommerce.contracts.csproj",
@@ -7573,17 +7604,23 @@
       "type": "project",
       "path": "../mystore.ecommerce.entities/mystore.ecommerce.entities.csproj",
       "msbuildProject": "../mystore.ecommerce.entities/mystore.ecommerce.entities.csproj"
+    },
+    "mystore.ecommerce.utility/1.0.0": {
+      "type": "project",
+      "path": "../mystore.ecommerce.utility/mystore.ecommerce.utility.csproj",
+      "msbuildProject": "../mystore.ecommerce.utility/mystore.ecommerce.utility.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj",
+      "AutoMapper >= 10.1.1",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.9",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 5.0.9",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 5.0.9",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.9",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
+      "mystore.ecommerce.business >= 1.0.0",
       "mystore.ecommerce.data >= 1.0.0",
       "mystore.ecommerce.dbcontext >= 1.0.0",
       "mystore.ecommerce.entities >= 1.0.0"
@@ -7648,6 +7685,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "AutoMapper": {
+            "target": "Package",
+            "version": "[10.1.1, )"
+          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[5.0.9, )"
@@ -7696,16 +7737,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for 'C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "libraryId": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  }
 }

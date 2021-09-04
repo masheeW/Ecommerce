@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using mystore.ecommerce.contracts.Repositories;
-using mystore.ecommerce.dbcontext;
-using mystore.ecommerce.dbcontext.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace mystore.ecommerce.data.Repositories
 {
+    using mystore.ecommerce.contracts.Repositories;
+    using mystore.ecommerce.dbcontext;
+    using mystore.ecommerce.dbcontext.Models;
+
     public class OrderRepository : IOrderRepository
     {
         private readonly EcommercedbContext _context;

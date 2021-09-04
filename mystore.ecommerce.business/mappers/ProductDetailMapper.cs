@@ -1,4 +1,5 @@
-﻿using mystore.ecommerce.contracts.mappers;
+﻿using mystore.ecommerce.business.utility;
+using mystore.ecommerce.contracts.mappers;
 using mystore.ecommerce.contracts.Repositories;
 using mystore.ecommerce.dbcontext.Models;
 using mystore.ecommerce.entities.Models;
@@ -27,7 +28,7 @@ namespace mystore.ecommerce.business.mappers
                 Id = product.Id,
                 Category = product.Category,
                 CategoryNavigation = categoryNavigation,
-                CreatedBy = "Admin",
+                CreatedBy = Constants.Admin,
                 CreatedDate = DateTime.Now,
                 ImageName = product.ImageName,
                 ProductName = product.ProductName,

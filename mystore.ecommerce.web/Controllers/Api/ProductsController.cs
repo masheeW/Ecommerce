@@ -2,16 +2,14 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using mystore.ecommerce.contracts.managers;
-using mystore.ecommerce.contracts.Repositories;
-using mystore.ecommerce.dbcontext.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace mystore.ecommerce.web.Controllers.Api
 {
+    using mystore.ecommerce.contracts.managers;
+    using mystore.ecommerce.dbcontext.Models;
+
     [ApiController]
     [Route("api/[controller]")]
     public class ProductsController : Controller
@@ -35,10 +33,14 @@ namespace mystore.ecommerce.web.Controllers.Api
         {
             try
             {
-                var results = _productManager.GetAllProducts();
+                var results = await _productManager.GetAllProducts();
 
-                return Ok(results);
+                if (!results.HasError)
+                {
+                    return Ok(results.Payload);
+                }
 
+                return BadRequest();
             }
             catch (Exception ex)
             {

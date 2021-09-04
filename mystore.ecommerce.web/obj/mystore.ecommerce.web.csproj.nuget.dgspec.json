@@ -4,6 +4,78 @@
     "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj": {}
   },
   "projects": {
+    "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj",
+        "projectName": "mystore.ecommerce.business",
+        "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj",
+        "packagesPath": "C:\\Users\\Krishan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Krishan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj"
+              },
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -38,6 +110,9 @@
               },
               "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
                 "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
+              },
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj"
               }
             }
           }
@@ -298,6 +373,65 @@
         }
       }
     },
+    "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj",
+        "projectName": "mystore.ecommerce.utility",
+        "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj",
+        "packagesPath": "C:\\Users\\Krishan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Krishan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -352,6 +486,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.9, )"

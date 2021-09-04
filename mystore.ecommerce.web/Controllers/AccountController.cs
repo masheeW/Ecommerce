@@ -75,7 +75,7 @@ namespace mystore.ecommerce.web.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Shop", "App");
+            return RedirectToAction("Shop", "App",new { Area=""});
         }
 
         public IActionResult Register()
