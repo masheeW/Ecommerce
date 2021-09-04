@@ -27,9 +27,7 @@ namespace mystore.ecommerce.business.mappers
             {
                 Id = product.Id,
                 Category = product.Category,
-                CategoryNavigation = categoryNavigation,
-                CreatedBy = Constants.UserRole.Admin,
-                CreatedDate = DateTime.Now,
+                CategoryNavigation = categoryNavigation,              
                 ImageName = product.ImageName,
                 ProductName = product.ProductName,
                 Price = product.Price,

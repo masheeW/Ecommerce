@@ -27,7 +27,7 @@ namespace mystore.ecommerce.data.Repositories
         {
             try
             {
-                return await _context.Product.Include(p => p.CategoryNavigation).ToListAsync();
+                return await _context.Product.Include(p => p.CategoryNavigation).OrderBy(p=>p.CreatedDate).ToListAsync();
             }
             catch (Exception ex)
             {

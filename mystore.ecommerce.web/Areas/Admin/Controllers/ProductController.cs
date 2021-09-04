@@ -51,6 +51,7 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
         {
             try
             {
+                ViewBag.Categories = _productManager.GetProductCategories().Payload;
                 string path = Path.Combine(this.Environment.WebRootPath, "img");
                 if (!Directory.Exists(path))
                 {
@@ -67,16 +68,6 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
                     }
                 }
 
-                //var newProduct = new ProductModel()
-                //{
-                //    Id = Guid.NewGuid().ToString(),
-                //    ProductName = productModel.ProductName,
-                //    Category = productModel.Category,
-                //    Price = productModel.Price,
-                //    Size = productModel.Size,
-                //    ImageName = postedFile.FileName
-                //};
-
                 productModel.Id = Guid.NewGuid().ToString();
                 productModel.ImageName = postedFile.FileName;
 
@@ -88,8 +79,8 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
                 _logger.LogError(ex.Message);
                 return View(productModel);
             }
-
-            return View(productModel);
+            
+            return View();
         }
 
         public virtual ActionResult Edit(string id)
@@ -112,6 +103,8 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
         [AutoValidateAntiforgeryToken]
         public virtual ActionResult Edit(ProductModel productViewModel)
         {
+            ViewBag.Categories = _productManager.GetProductCategories().Payload;
+            _productManager.UpdateProduct(productViewModel);
             return View(productViewModel);
         }
 

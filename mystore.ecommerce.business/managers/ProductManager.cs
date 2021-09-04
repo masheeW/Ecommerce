@@ -55,6 +55,8 @@ namespace mystore.ecommerce.business.managers
             {
                 var productMapper = _mapper.Map(product);
 
+                productMapper.CreatedBy = Constants.UserRole.Admin;
+                productMapper.CreatedDate = DateTime.Now;
                 var response = _productRepository.AddProduct(productMapper);
                 if (response != null)
                 {
@@ -122,7 +124,8 @@ namespace mystore.ecommerce.business.managers
             try
             {
                 var productMapper = _mapper.Map(product);
-
+                productMapper.UpdatedBy = Constants.UserRole.Admin;
+                productMapper.UpdatedDate = DateTime.Now;
                 var response = _productRepository.UpdateProduct(productMapper);
                 if (response != null)
                 {

@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using mystore.ecommerce.dbcontext.Models;
-using mystore.ecommerce.web.Models;
+using mystore.ecommerce.entities.Models;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
@@ -40,7 +40,7 @@ namespace mystore.ecommerce.web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginModel model)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +106,7 @@ namespace mystore.ecommerce.web.Controllers
                     var response = await _userManager.AddToRoleAsync(user, "Customer");
                     if (response.Succeeded)
                     {
-                        return await CreateToken(new LoginViewModel() { UserName = userModel.Email, Password = userModel.Password });
+                        return await CreateToken(new LoginModel() { UserName = userModel.Email, Password = userModel.Password });
                     }
                     else
                     {
@@ -130,7 +130,7 @@ namespace mystore.ecommerce.web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateToken([FromBody] LoginViewModel model)
+        public async Task<IActionResult> CreateToken([FromBody] LoginModel model)
         {
             if(ModelState.IsValid)
             {

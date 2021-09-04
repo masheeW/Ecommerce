@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace mystore.ecommerce.web.Models
+namespace mystore.ecommerce.entities.Models
 {
-    public class LoginViewModel
+    public class LoginModel
     {
         [Required]
         public string UserName { get; set; }
