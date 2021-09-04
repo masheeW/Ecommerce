@@ -22,6 +22,7 @@ namespace mystore.ecommerce.dbcontext.Models
         public DateTime? UpdatedDate { get; set; }
         public string UpdatedBy { get; set; }
 
+        public virtual ProductCategory CategoryNavigation { get; set; }
         public virtual ICollection<OrderItem> OrderItem { get; set; }
     }
 }

@@ -6,5 +6,5 @@
     styleUrls: []
 })
 export class ShopPage {
-    title = 'Shop';
+    title = 'Welcome to My Store';
 }

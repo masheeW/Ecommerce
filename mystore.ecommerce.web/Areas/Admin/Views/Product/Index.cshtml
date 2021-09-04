@@ -1,0 +1,53 @@
+﻿@model mystore.ecommerce.web.Areas.Admin.Models.ProductViewModel
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}
+<h2>Add Product</h2>
+<div class="col-md-6 offset-md-3">
+
+    <div class="">
+        <form method="post" enctype="multipart/form-data" asp-controller="Product" asp-action="Index">
+
+            <div asp-validation-summary="ModelOnly"> </div>
+
+            <div class="form-group">
+                <label asp-for="ProductName">Product Name:</label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Category">Category:</label>
+                <select asp-for="Category" asp-items="@(new SelectList(ViewBag.Categories,"Id","CategoryName"))"  class="form-control"></select>
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Size">Short description:</label>
+                <input type="text" asp-for="Size" class="form-control" />
+                <span asp-validation-for="Size" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price">Price (LKR):</label>
+                <input type="number" value="0.00" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3 mb-3">
+                <label asp-for="ImageName">Product Image:</label>
+                <input type="file" name="postedFile" />
+                <br />
+               
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary"> Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<h3>List of Products</h3>

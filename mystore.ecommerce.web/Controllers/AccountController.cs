@@ -7,7 +7,6 @@ using Microsoft.IdentityModel.Tokens;
 using mystore.ecommerce.dbcontext.Models;
 using mystore.ecommerce.web.Models;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -46,12 +45,18 @@ namespace mystore.ecommerce.web.Controllers
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RemeberMe, false);
-
+               
+                var user = await _userManager.FindByEmailAsync(model.UserName);
+           
                 if (result.Succeeded)
                 {
                     if (Request.Query.Keys.Contains("ReturnUrl"))
                     {
                         return Redirect(Request.Query["ReturnUrl"].First());
+                    }
+                    else if(await _userManager.IsInRoleAsync(user,"Admin"))
+                    {
+                        return Redirect("/Admin/Home/Index");
                     }
                     else
                     {
@@ -70,21 +75,21 @@ namespace mystore.ecommerce.web.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "App");
+            return RedirectToAction("Shop", "App");
         }
 
         public IActionResult Register()
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "App");
+                return RedirectToAction("Shop", "App");
             }
 
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(UserRegistrationModel userModel)
+        public async Task<IActionResult> Register([FromBody] UserRegistrationModel userModel)
         {
             if (ModelState.IsValid)
             {
@@ -98,10 +103,10 @@ namespace mystore.ecommerce.web.Controllers
                 var result = await _userManager.CreateAsync(user, userModel.Password);
                 if (result.Succeeded)
                 {
-                    var response = await _userManager.AddToRoleAsync(user, "Admin");
+                    var response = await _userManager.AddToRoleAsync(user, "Customer");
                     if (response.Succeeded)
                     {
-                        return RedirectToAction("Index", "App");
+                        return await CreateToken(new LoginViewModel() { UserName = userModel.Email, Password = userModel.Password });
                     }
                     else
                     {
@@ -120,7 +125,7 @@ namespace mystore.ecommerce.web.Controllers
                 }
             }
 
-            return RedirectToAction("Login", "App");
+            return View();
 
         }
 
@@ -143,6 +148,7 @@ namespace mystore.ecommerce.web.Controllers
                             new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                             new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName)
+                           
                         };
 
                         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));

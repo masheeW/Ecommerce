@@ -23,6 +23,10 @@
       {
          "HasPrimaryKey": true,
          "Name": "[dbo].[Product]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProductCategory]"
       }
    ],
    "UseDatabaseNames": true,

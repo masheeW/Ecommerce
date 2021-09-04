@@ -20,6 +20,7 @@ namespace mystore.ecommerce.dbcontext
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderItem> OrderItem { get; set; }
         public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<ProductCategory> ProductCategory { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -56,7 +57,9 @@ namespace mystore.ecommerce.dbcontext
 
             modelBuilder.Entity<OrderItem>(entity =>
             {
-                entity.Property(e => e.Id).HasMaxLength(50);
+                entity.Property(e => e.Id)
+                    .HasMaxLength(50)
+                    .HasDefaultValueSql("(newid())");
 
                 entity.Property(e => e.OrderId)
                     .IsRequired()
@@ -69,7 +72,6 @@ namespace mystore.ecommerce.dbcontext
                 entity.Property(e => e.TotalPrice).HasColumnType("decimal(12, 2)");
 
                 entity.Property(e => e.UnitPrice).HasColumnType("decimal(12, 2)");
-
 
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.OrderItem)
@@ -106,6 +108,33 @@ namespace mystore.ecommerce.dbcontext
                     .HasMaxLength(150);
 
                 entity.Property(e => e.Size).HasMaxLength(50);
+
+                entity.Property(e => e.UpdatedBy).HasMaxLength(128);
+
+                entity.HasOne(d => d.CategoryNavigation)
+                    .WithMany(p => p.Product)
+                    .HasForeignKey(d => d.Category)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ProductCategoryId");
+            });
+
+            modelBuilder.Entity<ProductCategory>(entity =>
+            {
+                entity.Property(e => e.Id).HasMaxLength(100);
+
+                entity.Property(e => e.CategoryName)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.CreatedBy)
+                    .IsRequired()
+                    .HasMaxLength(128);
+
+                entity.Property(e => e.CreatedDate).HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasMaxLength(150);
 
                 entity.Property(e => e.UpdatedBy).HasMaxLength(128);
             });

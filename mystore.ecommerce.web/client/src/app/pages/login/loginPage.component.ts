@@ -1,5 +1,6 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { BehaviorSubject, Observable } from "rxjs";
 import { Store } from "../../services/store.service";
 import { LoginRequest } from "../../shared/LoginResults";
 
@@ -7,8 +8,9 @@ import { LoginRequest } from "../../shared/LoginResults";
     selector: "login-page",
     templateUrl: "loginPage.component.html"
 })
-export class LoginPage {
-    constructor(public store: Store, private router: Router) { }
+export class LoginPage implements OnInit {
+   
+    loginStatus!: Observable<boolean>;
 
     public creds: LoginRequest = {
         username: "",
@@ -17,9 +19,20 @@ export class LoginPage {
 
     public errorMessage = "";
 
+    constructor(public store: Store, private router: Router) { }
+
+
+    ngOnInit() {
+        this.loginStatus = this.store.loginStatus;
+        this.store.checkLoginStatus();
+    }
+
+
     onLogin() {
         this.store.login(this.creds)
             .subscribe(() => {
+                 
+                this.store.isAuthenticated = true;
                 //success
                 if (this.store.order.orderItems.length > 0) {
                     this.router.navigate(["checkout"]);
@@ -32,5 +45,6 @@ export class LoginPage {
                 this.errorMessage = "Failed to login";
             });
     }
+
 
 }

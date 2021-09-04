@@ -1,0 +1,43 @@
+﻿<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+        <div *ngIf="errorMessage" class="alert alert-success">{{ successMessage }}</div>
+        <form (submit)="onRegister()">
+
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control" name="firstname" #firstname="ngModel" [(ngModel)]="userInfo.firstname" required />
+                <div class="text-danger" *ngIf="firstname.touched && firstname.invalid && firstname.errors?.required">Required</div>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control" name="lastname" #lastname="ngModel" [(ngModel)]="userInfo.lastname" required />
+                <div class="text-danger" *ngIf="lastname.touched && lastname.invalid && lastname.errors?.required">Required</div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="userInfo.email" required email />
+                <div class="text-danger" *ngIf="email.touched && email.invalid && email.errors?.required">Required</div>
+                <div class="text-warning" *ngIf="email.errors?.email">Invalid Email</div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" #password="ngModel" name="password" [(ngModel)]="userInfo.password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+                <div class="text-danger" *ngIf="password.touched && password.invalid && password.errors?.required">Required</div>
+                <div class="text-warning" *ngIf="password.errors?.pattern"> Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.</div>
+            </div>
+            <div class="form-group">
+                <label for="confirmpassword">Confirm Password</label>
+                <input type="password" class="form-control" #confirmpassword="ngModel" name="confirmpassword" [(ngModel)]="userInfo.confirmpassword" required pattern="{{ password.value }}" />
+                <div class="text-danger" *ngIf="confirmpassword.touched && confirmpassword.invalid && confirmpassword.errors?.required">Required</div>
+                <div class="text-warning" *ngIf="confirmpassword.errors?.pattern"> Password & Confirm Password does not match.</div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-success" value="Register" />
+                <a href="#" class="btn btn-default">Cancel</a>
+            </div>
+
+        </form>
+    </div>
+</div>
