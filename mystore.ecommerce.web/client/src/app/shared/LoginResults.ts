@@ -2,6 +2,7 @@
     token!: string;
     expiration!: Date;
     IsAuthenticated!: boolean;
+    username!: string;
 }
 
 

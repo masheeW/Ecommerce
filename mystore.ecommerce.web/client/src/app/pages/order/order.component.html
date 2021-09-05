@@ -1,0 +1,27 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Order Number</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">No of Items</th>
+                    <th scope="col">Total (LKR)</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let o of store.orders">
+                    <td>{{ o.orderNumber }}</td>
+                    <td>{{ o.orderDate | date:'mediumDate' }}</td>
+                    <td>{{ o.orderItems.length }}</td>
+                    <td>{{ o.totalAmount }}</td>
+                    <td>
+                        <button id="orderDetails" class="btn btn-success btn-block mt-auto" (click)="onOrderView(o)"><i class="fa fa-eye"></i> View</button>
+                    </td>
+                </tr>
+                </tbody>
+        </table>
+
+    </div>
+</div>

@@ -18,7 +18,6 @@ namespace mystore.ecommerce.entities.Models
 
         public decimal TotalAmount { get; set; }
         public decimal TotalDiscount { get; set; }
-     
 
     }
 }

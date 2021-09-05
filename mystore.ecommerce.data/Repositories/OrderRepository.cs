@@ -40,7 +40,7 @@ namespace mystore.ecommerce.data.Repositories
             try
             {
                 return _context.Order
-                    .Where(o => o.Id == Id).Include(o=>o.OrderItem).ThenInclude(p=>p.Product)
+                    .Where(o => o.Id == Id).Include(o=>o.OrderItems).ThenInclude(p=>p.Product)
                     .FirstOrDefault();
             }
             catch (Exception ex)
@@ -54,7 +54,7 @@ namespace mystore.ecommerce.data.Repositories
         {
             try
             {
-                return _context.Order.Where(o => o.Customer == username).ToList();
+                return _context.Order.Where(o => o.Customer == username).Include(p=>p.OrderItems).OrderByDescending(p=>p.CreatedDate).ToList();
             }
             catch (Exception ex)
             {

@@ -27,6 +27,7 @@ namespace mystore.ecommerce.business.managers
         {
             try
             {
+                
                 return _orderRepository.GetAllOrdersByUser(userid);
             }
             catch(Exception ex)
@@ -49,13 +50,13 @@ namespace mystore.ecommerce.business.managers
                 var newOrder = _mapper.Map<Order>(order);
 
                 newOrder.Id = Guid.NewGuid().ToString();
-
+                newOrder.OrderItems = new List<OrderItem>();
                 foreach (var item in order.OrderItems)
                 {
                     var newItem = _mapper.Map<OrderItem>(item);
                     newItem.Id = Guid.NewGuid().ToString();
                     newItem.Order = newOrder;
-                    newOrder.OrderItem.Add(newItem);
+                    newOrder.OrderItems.Add(newItem);
                 }
 
                 if (newOrder.OrderDate == DateTime.MinValue)

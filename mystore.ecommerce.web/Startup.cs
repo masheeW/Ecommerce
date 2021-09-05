@@ -85,7 +85,7 @@ namespace mystore.ecommerce.web
 
 
             services.AddMvc();
-
+            services.AddControllers();
             services.AddControllersWithViews().AddRazorRuntimeCompilation()
     .AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
@@ -127,6 +127,8 @@ namespace mystore.ecommerce.web
 
                 endpoints.MapControllerRoute("Default", "/{controller}/{action}/{id?}",
                     new { controller = "App", action = "Index" });
+
+                endpoints.MapControllers();
 
                 endpoints.MapRazorPages();
             });

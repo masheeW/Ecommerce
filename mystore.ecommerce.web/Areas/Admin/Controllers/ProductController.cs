@@ -16,13 +16,14 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
+    [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
     public class ProductController : Controller
     {
-        private IHostingEnvironment Environment;
+        private IWebHostEnvironment Environment;
         private readonly ILogger<ProductController> _logger;
         private readonly IProductManager _productManager;
 
-        public ProductController(IHostingEnvironment _environment, ILogger<ProductController> logger, IProductManager productManager)
+        public ProductController(IWebHostEnvironment _environment, ILogger<ProductController> logger, IProductManager productManager)
         {
             Environment = _environment;
             _logger = logger;

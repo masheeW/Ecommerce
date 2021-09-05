@@ -52,8 +52,9 @@ namespace mystore.ecommerce.web.Controllers.Api
         }
 
 
-        [HttpGet("{id}")]
-        public IActionResult Get(string Id)
+        [HttpPost]
+        [Route("api/[controller]/[action]")]
+        public async Task<IActionResult> GetOrder([FromBody]string Id)
         {
             try
             {

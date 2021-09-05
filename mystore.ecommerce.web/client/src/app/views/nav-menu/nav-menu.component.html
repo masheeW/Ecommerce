@@ -11,6 +11,9 @@
                 <a routerLink="/" class="nav-link">Home</a>
             </li>
             <li class="nav-item" *ngIf="(loginStatus)">
+                <a routerLink="order" class="nav-link">My Orders</a>
+            </li>
+            <li class="nav-item" *ngIf="(loginStatus)">
                 <a (click)="logout()" class="nav-link">Logout</a>
             </li>
             <li class="nav-item" *ngIf="(!loginStatus)">

@@ -74,7 +74,7 @@ namespace mystore.ecommerce.dbcontext
                 entity.Property(e => e.UnitPrice).HasColumnType("decimal(12, 2)");
 
                 entity.HasOne(d => d.Order)
-                    .WithMany(p => p.OrderItem)
+                    .WithMany(p => p.OrderItems)
                     .HasForeignKey(d => d.OrderId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_OrderItemOrderId");

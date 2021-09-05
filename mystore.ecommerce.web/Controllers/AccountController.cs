@@ -159,7 +159,9 @@ namespace mystore.ecommerce.web.Controllers
                         return Created("", new
                         {
                             token = new JwtSecurityTokenHandler().WriteToken(token),
-                            expiration= token.ValidTo
+                            expiration= token.ValidTo,
+                            username = user.UserName,
+                            IsAuthenticated = true
                         });
                     }
                 }

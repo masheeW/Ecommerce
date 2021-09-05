@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { RegisterPage } from './pages/register/register.component'; 
 import { NavMenu } from './views/nav-menu/nav-menu.component';
 import { PaymentPage } from './pages/payment/payment.component';
+import { OrderPage } from './pages/order/order.component';
+import { OrderDetailPage } from './pages/odetail/odetail.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { PaymentPage } from './pages/payment/payment.component';
         LoginPage,
         RegisterPage,
         NavMenu,
-        PaymentPage
+        PaymentPage,
+        OrderPage,
+        OrderDetailPage
   ],
   imports: [
       BrowserModule,

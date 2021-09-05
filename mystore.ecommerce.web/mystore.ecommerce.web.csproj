@@ -13,7 +13,8 @@
   <ItemGroup>
     <None Remove="client\src\app\interfaces\store-state.ts" />
     <None Remove="client\src\app\pages\login\loginPage.component.ts" />
-    <None Remove="client\src\app\pages\order\orderPage.component.ts" />
+    <None Remove="client\src\app\pages\odetail\odetail.component.ts" />
+    <None Remove="client\src\app\pages\order\order.component.ts" />
     <None Remove="client\src\app\pages\payment\payment.component.ts" />
     <None Remove="client\src\app\pages\register\register.component.ts" />
     <None Remove="client\src\app\pages\shopPage.component.ts" />
@@ -71,7 +72,8 @@
   <ItemGroup>
     <TypeScriptCompile Include="client\src\app\interfaces\store-state.ts" />
     <TypeScriptCompile Include="client\src\app\pages\login\loginPage.component.ts" />
-    <TypeScriptCompile Include="client\src\app\pages\order\orderPage.component.ts" />
+    <TypeScriptCompile Include="client\src\app\pages\odetail\odetail.component.ts" />
+    <TypeScriptCompile Include="client\src\app\pages\order\order.component.ts" />
     <TypeScriptCompile Include="client\src\app\pages\payment\payment.component.ts" />
     <TypeScriptCompile Include="client\src\app\pages\register\register.component.ts" />
     <TypeScriptCompile Include="client\src\app\pages\shop\shopPage.component.ts" />

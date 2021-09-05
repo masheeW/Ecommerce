@@ -2,7 +2,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { StoreState } from "../interfaces/store-state";
 import { LoginRequest, LoginResults, UserRegistrationReq } from "../shared/LoginResults";
 import { Order, OrderItem } from "../shared/Order";
 import { Product } from "../shared/Product";
@@ -22,6 +21,9 @@ export class Store {
     public isAuthenticated!: boolean;
     public message = "";
     public lastOrderNumber = "";
+    public username = "";
+    public orders: Order[] = [];
+    public orderDetail: Order = new Order();
 
     get getLogin() {
         return this._loginStatus.asObservable();
@@ -29,6 +31,19 @@ export class Store {
 
     checkLoginStatus(): boolean {
         return this.isAuthenticated;
+    }
+
+
+    loadOrders(): Observable<void> {
+        const headers = new HttpHeaders().set("Authorization", `Bearer ${this.token}`);
+
+        return this.http.get<[]>("/api/orders", {
+            headers: headers
+        })
+            .pipe(map(data => {
+                this.orders = data;
+                return;
+            }));
     }
 
     loadProducts(): Observable<void>{
@@ -39,6 +54,8 @@ export class Store {
             }));
     }
 
+ 
+
     get loginRequired(): boolean {
         return this.token.length == 0 || this.expiration > new Date();
     }
@@ -48,7 +65,7 @@ export class Store {
             .pipe(map(data => {
                 this.token = data.token;
                 this.expiration = data.expiration;
-
+                this.username = data.username;
                 this.isAuthenticated = data.IsAuthenticated;
 
                 this._loginStatus.next(Object.assign({}, this.isAuthenticated));
@@ -62,7 +79,7 @@ export class Store {
             .pipe(map(data => {
                 this.token = data.token;
                 this.expiration = data.expiration;
-
+                this.username = data.username;
                 this.isAuthenticated = data.IsAuthenticated;
 
                 this._loginStatus.next(Object.assign({}, this.isAuthenticated));
@@ -116,6 +133,19 @@ export class Store {
             .pipe(map(() => {
                 this.lastOrderNumber = this.order.orderNumber;
                 this.order = new Order();
+            }));
+    }
+
+
+    viewOrder(order: Order) {
+        const headers = new HttpHeaders().set("Authorization", `Bearer ${this.token}`);
+
+        return this.http.post<Order>("/api/orders/GetOrder", order.orderNumber, {
+            headers: headers
+        })
+            .pipe(map(data => {
+                this.orderDetail = data;
+                return;
             }));
     }
 }

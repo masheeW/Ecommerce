@@ -8,7 +8,7 @@ namespace mystore.ecommerce.dbcontext.Models
     {
         public Order()
         {
-            OrderItem = new HashSet<OrderItem>();
+            OrderItems = new HashSet<OrderItem>();
         }
 
         public string Id { get; set; }
@@ -23,6 +23,6 @@ namespace mystore.ecommerce.dbcontext.Models
         public DateTime? UpdatedDate { get; set; }
         public string UpdatedBy { get; set; }
 
-        public virtual ICollection<OrderItem> OrderItem { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }
