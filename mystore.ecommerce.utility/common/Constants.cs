@@ -22,5 +22,6 @@ namespace mystore.ecommerce.utility.common
             public const string Delivered = "Delivered";
             public const string Cancelled = "Cancelled";
         }
+
     }
 }

@@ -109,6 +109,10 @@ namespace mystore.ecommerce.dbcontext
 
                 entity.Property(e => e.Size).HasMaxLength(50);
 
+                entity.Property(e => e.Status)
+                    .IsRequired()
+                    .HasDefaultValueSql("((1))");
+
                 entity.Property(e => e.UpdatedBy).HasMaxLength(128);
 
                 entity.HasOne(d => d.CategoryNavigation)

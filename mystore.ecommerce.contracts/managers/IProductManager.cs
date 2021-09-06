@@ -11,7 +11,9 @@ namespace mystore.ecommerce.contracts.managers
 {
     public interface IProductManager
     {
-        Task<ServiceResponse<IEnumerable<ProductModel>>> GetAllProducts();
+        Task<ServiceResponse<IEnumerable<ProductModel>>> GetProducts();
+        Task<ServiceResponse<IEnumerable<ProductModel>>> GetAvailableProducts();
+        Task<ServiceResponse<IEnumerable<ProductModel>>> GetSearchedProducts(SearchRequest search);
         ServiceResponse<ProductModel> GetProductById(string id);
         ServiceResponse<IEnumerable<ProductCategory>> GetProductCategories();
         ServiceResponse<ProductModel> SaveProduct(ProductModel product);

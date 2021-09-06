@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { LoginRequest, LoginResults, UserRegistrationReq } from "../shared/LoginResults";
 import { Order, OrderItem } from "../shared/Order";
-import { Product } from "../shared/Product";
+import { Product, ProductCategory, SearchRequest } from "../shared/Product";
 
 @Injectable()
 export class Store {
@@ -24,6 +24,11 @@ export class Store {
     public username = "";
     public orders: Order[] = [];
     public orderDetail: Order = new Order();
+    public productCategories: ProductCategory[] = [];
+    public searchInfo: SearchRequest = {
+        category: "",
+        name: ""
+    }
 
     get getLogin() {
         return this._loginStatus.asObservable();
@@ -46,15 +51,22 @@ export class Store {
             }));
     }
 
-    loadProducts(): Observable<void>{
-        return this.http.get<[]>("/api/products")
+    loadCategories(): Observable<void> {
+      
+        return this.http.get<[]>("/api/products/getcategories")
+            .pipe(map(data => {
+                this.productCategories = data;
+                return;
+            }));
+    }
+
+    loadProducts(search: SearchRequest): Observable<void> {
+        return this.http.post<[]>("/api/products", search)
             .pipe(map(data => {
                 this.products = data;
                 return;
             }));
     }
-
- 
 
     get loginRequired(): boolean {
         return this.token.length == 0 || this.expiration > new Date();

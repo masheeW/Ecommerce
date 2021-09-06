@@ -31,7 +31,11 @@ namespace mystore.ecommerce.business.mappers
                 ImageName = product.ImageName,
                 ProductName = product.ProductName,
                 Price = product.Price,
-                Size = product.Size,                
+                Size = product.Size, 
+                Status = product.Status,
+                OutOfStock = product.OutOfStock,
+                CreatedBy = product.CreatedBy,
+                CreatedDate = product.CreatedDate
         };
 
         }

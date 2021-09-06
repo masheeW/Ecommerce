@@ -9,4 +9,14 @@
     createdby!: string;
     updateddate?: any;
     updatedby?: any;
- }
+}
+
+export class ProductCategory {
+    id!: string;
+    categoryName!: string;
+}
+
+export class SearchRequest {
+    category!: string;
+    name!: string;
+}

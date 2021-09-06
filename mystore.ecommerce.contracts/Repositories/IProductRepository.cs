@@ -9,7 +9,9 @@ namespace mystore.ecommerce.contracts.Repositories
 {
     public interface IProductRepository
     {
-        Task<IEnumerable<Product>> GetAllProducts();
+        Task<IEnumerable<Product>> GetProducts();
+        Task<IEnumerable<Product>> GetAllAvailableProducts();
+        Task<IEnumerable<Product>> GetAllAvailableProductsBySearch(string categoryId, string text);
         IEnumerable<ProductCategory> GetProductCategories();
         IEnumerable<Product> GetProductsByCategory(string categpry);
         Product AddProduct(Product product);

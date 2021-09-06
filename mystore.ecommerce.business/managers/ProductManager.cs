@@ -28,11 +28,53 @@ namespace mystore.ecommerce.business.managers
             _listMapper = listMapper;
         }
 
-        public async Task<ServiceResponse<IEnumerable<ProductModel>>> GetAllProducts()
+        public async Task<ServiceResponse<IEnumerable<ProductModel>>> GetProducts()
         {
             try
             {
-                var productList = await _productRepository.GetAllProducts();
+                var productList = await _productRepository.GetProducts();
+                var products = _listMapper.Map<IEnumerable<Product>, IEnumerable<ProductModel>>(productList);
+
+                return new ServiceResponse<IEnumerable<ProductModel>>(products);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+
+                return new ServiceResponse<IEnumerable<ProductModel>>(null)
+                {
+                    HasError = true,
+                    ErrorMessage = ErrorMessages.APPLICATION_ERROR
+                };
+            }
+        }
+
+        public async Task<ServiceResponse<IEnumerable<ProductModel>>> GetAvailableProducts()
+        {
+            try
+            {
+                var productList = await _productRepository.GetAllAvailableProducts();
+                var products = _listMapper.Map<IEnumerable<Product>, IEnumerable<ProductModel>>(productList);
+
+                return new ServiceResponse<IEnumerable<ProductModel>>(products);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+
+                return new ServiceResponse<IEnumerable<ProductModel>>(null)
+                {
+                    HasError = true,
+                    ErrorMessage = ErrorMessages.APPLICATION_ERROR
+                };
+            }
+        }
+
+        public async Task<ServiceResponse<IEnumerable<ProductModel>>> GetSearchedProducts(SearchRequest search)
+        {
+            try
+            {
+                var productList = await _productRepository.GetAllAvailableProductsBySearch(search.Category, search.Name);
                 var products = _listMapper.Map<IEnumerable<Product>, IEnumerable<ProductModel>>(productList);
 
                 return new ServiceResponse<IEnumerable<ProductModel>>(products);
@@ -145,6 +187,7 @@ namespace mystore.ecommerce.business.managers
                 };
             }
         }
+
     }
 
 

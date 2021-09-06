@@ -23,11 +23,46 @@ namespace mystore.ecommerce.data.Repositories
             _logger = logger;
         }
 
-        public async Task<IEnumerable<Product>> GetAllProducts()
+        public async Task<IEnumerable<Product>> GetProducts()
         {
             try
             {
-                return await _context.Product.Include(p => p.CategoryNavigation).OrderBy(p=>p.CreatedDate).ToListAsync();
+                return await _context.Product.Include(p => p.CategoryNavigation).OrderBy(p => p.CreatedDate).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{ex.Message}");
+                return null;
+            }
+        }
+
+        public async Task<IEnumerable<Product>> GetAllAvailableProducts()
+        {
+            try
+            {
+                return await _context.Product.Where(p=>p.Status && !p.OutOfStock).Include(p => p.CategoryNavigation).OrderBy(p=>p.CreatedDate).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{ex.Message}");
+                return null;
+            }
+        }
+
+        public async Task<IEnumerable<Product>> GetAllAvailableProductsBySearch(string categoryId, string text)
+        {
+            try
+            {
+
+                if (!string.IsNullOrEmpty(categoryId))
+                {
+                    return await _context.Product.Where(p => p.Status && !p.OutOfStock && p.Category == categoryId && p.ProductName.ToLower().Contains(text.ToLower())).Include(p => p.CategoryNavigation).OrderBy(p => p.CreatedDate).ToListAsync();
+                }
+                else
+                {
+                    return await _context.Product.Where(p => p.Status && !p.OutOfStock && p.ProductName.ToLower().Contains(text.ToLower())).Include(p => p.CategoryNavigation).OrderBy(p => p.CreatedDate).ToListAsync();
+                }
+            
             }
             catch (Exception ex)
             {

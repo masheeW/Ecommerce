@@ -6,7 +6,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div id="theMenu" class="navbar-collapse collapse">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" id='menu'>
             <li class="nav-item">
                 <a routerLink="/" class="nav-link">Home</a>
             </li>
@@ -22,6 +22,16 @@
             <li class="nav-item" *ngIf="(!loginStatus)">
                 <a routerLink="register" class="nav-link">Register</a>
             </li>
+            <!--<li>
+                <a class='cat' href='#'>Menu</a>
+                <ul class='menus'>
+                    <li *ngFor="let p of this.store.productCategories"><a href='#' title='{{ p.categoryName }}'>{{ p.categoryName }}</a></li>
+                </ul>
+            </li>-->
         </ul>
+        <div>
+            <input type="text" name="searchtext" #searchtext />
+            <input type="button" value="Search" (click)="this.search(searchtext.value)" />
+        </div>
     </div>
 </nav>

@@ -23,7 +23,10 @@ namespace mystore.ecommerce.entities.Models
         public decimal Price { get; set; }
 
         public string ImageName { get; set; }
-  
 
+        public bool Status { get; set; }
+        public bool OutOfStock { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

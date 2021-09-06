@@ -21,6 +21,8 @@ namespace mystore.ecommerce.dbcontext.Models
         public string CreatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public string UpdatedBy { get; set; }
+        public bool Status { get; set; }
+        public bool OutOfStock { get; set; }
 
         public virtual ProductCategory CategoryNavigation { get; set; }
         public virtual ICollection<OrderItem> OrderItem { get; set; }

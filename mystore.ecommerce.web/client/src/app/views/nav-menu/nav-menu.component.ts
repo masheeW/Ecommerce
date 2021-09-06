@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { BehaviorSubject, Observable } from "rxjs";
 import { StoreState } from "../../interfaces/store-state";
 import { Store } from "../../services/store.service";
+import { ProductCategory, SearchRequest } from "../../shared/Product";
 
 @Component({
     selector: 'nav-menu',
@@ -13,8 +14,8 @@ import { Store } from "../../services/store.service";
 export class NavMenu implements OnInit {
 
     loginStatus!: boolean;
-
-    constructor(private store: Store, private router: Router) {
+   
+    constructor(public store: Store, public router: Router) {
     }
 
     ngOnInit() {
@@ -22,11 +23,27 @@ export class NavMenu implements OnInit {
             this.loginStatus = updatedval;
         });
 
+        this.store.loadCategories()
+            .subscribe(() => {
+
+            });
+
         this.store.checkLoginStatus();
     }
 
     logout(): void {
         window.location.reload();
+    }
+
+    search(text: string): void {
+        this.store.searchInfo.category = "";
+        this.store.searchInfo.name = text;
+
+        this.store.loadProducts(this.store.searchInfo)
+            .subscribe(() => {
+
+            });
+        
     }
 
 }

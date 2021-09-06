@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using mystore.ecommerce.contracts.managers;
 using mystore.ecommerce.contracts.Repositories;
 using mystore.ecommerce.dbcontext.Models;
+using mystore.ecommerce.entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,42 @@ namespace mystore.ecommerce.web.Controllers.Api
         {
             try
             {
-                var results = await _productManager.GetAllProducts();
+                var results = await _productManager.GetAvailableProducts();
+
+                return Ok(results.Payload);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest("Error Occurred");
+            }
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] SearchRequest request)
+        {
+            try
+            {
+                var results = await _productManager.GetSearchedProducts(request);
+
+                return Ok(results.Payload);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest("Error Occurred");
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetCategories()
+        {
+            try
+            {
+                var results = _productManager.GetProductCategories();
 
                 return Ok(results.Payload);
 

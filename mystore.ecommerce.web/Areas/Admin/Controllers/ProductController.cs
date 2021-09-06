@@ -32,7 +32,7 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var products = await _productManager.GetAllProducts();
+            var products = await _productManager.GetProducts();
             if (!products.HasError)
             {
                 return View(products.Payload);
@@ -108,6 +108,7 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
             _productManager.UpdateProduct(productViewModel);
             return View(productViewModel);
         }
+
 
     }
 }
