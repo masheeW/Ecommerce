@@ -15,8 +15,8 @@ namespace mystore.ecommerce.contracts.managers
         Task<ServiceResponse<IEnumerable<ProductModel>>> GetAvailableProducts();
         Task<ServiceResponse<IEnumerable<ProductModel>>> GetSearchedProducts(SearchRequest search);
         ServiceResponse<ProductModel> GetProductById(string id);
-        ServiceResponse<IEnumerable<ProductCategory>> GetProductCategories();
         ServiceResponse<ProductModel> SaveProduct(ProductModel product);
         ServiceResponse<ProductModel> UpdateProduct(ProductModel product);
+        Task<ServiceResponse<IEnumerable<ProductCategory>>> GetProductCategories();
     }
 }

@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace mystore.ecommerce.web.Controllers.Api
 {
     [ApiController]
-    [Route("api/[controller]")]
+  
     public class ProductsController : Controller
     {
         private readonly IProductManager _productManager;
@@ -32,6 +32,7 @@ namespace mystore.ecommerce.web.Controllers.Api
 
 
         [HttpGet]
+        [Route("api/[controller]")]
         public async Task<IActionResult> Get()
         {
             try
@@ -50,6 +51,7 @@ namespace mystore.ecommerce.web.Controllers.Api
 
 
         [HttpPost]
+        [Route("api/[controller]")]
         public async Task<IActionResult> Post([FromBody] SearchRequest request)
         {
             try
@@ -67,11 +69,12 @@ namespace mystore.ecommerce.web.Controllers.Api
         }
 
         [HttpGet]
+        [Route("api/[controller]/[action]")]
         public async Task<IActionResult> GetCategories()
         {
             try
             {
-                var results = _productManager.GetProductCategories();
+                var results = await _productManager.GetProductCategories();
 
                 return Ok(results.Payload);
 

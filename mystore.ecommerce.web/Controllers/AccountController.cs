@@ -56,7 +56,7 @@ namespace mystore.ecommerce.web.Controllers
                     }
                     else if(await _userManager.IsInRoleAsync(user,"Admin"))
                     {
-                        return Redirect("/Admin/Home/Index");
+                        return Redirect("/Admin/Product/Index");
                     }
                     else
                     {

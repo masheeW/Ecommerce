@@ -1,47 +1,46 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj": {}
+    "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj": {
+    "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj",
+        "projectUniqueName": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj",
         "projectName": "mystore.ecommerce.business",
-        "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj",
-        "packagesPath": "C:\\Users\\maheshikaw.KEELLS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\obj\\",
+        "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj",
+        "packagesPath": "C:\\Users\\Krishan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\maheshikaw.KEELLS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Krishan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://jkcs-projects.pkgs.visualstudio.com/KeellsMobileApp/_packaging/jkit-smart-retail-feed/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj": {
-                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj"
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj"
               },
-              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
-                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
               },
-              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj": {
-                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj"
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj"
               }
             }
           }
@@ -76,48 +75,47 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj": {
+    "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj",
+        "projectUniqueName": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj",
         "projectName": "mystore.ecommerce.contracts",
-        "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj",
-        "packagesPath": "C:\\Users\\maheshikaw.KEELLS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\obj\\",
+        "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj",
+        "packagesPath": "C:\\Users\\Krishan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\maheshikaw.KEELLS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Krishan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://jkcs-projects.pkgs.visualstudio.com/KeellsMobileApp/_packaging/jkit-smart-retail-feed/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
-                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj"
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj"
               },
-              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
-                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
               },
-              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj": {
-                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj"
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj"
               }
             }
           }
@@ -146,45 +144,44 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj": {
+    "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj",
+        "projectUniqueName": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj",
         "projectName": "mystore.ecommerce.data",
-        "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj",
-        "packagesPath": "C:\\Users\\maheshikaw.KEELLS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\obj\\",
+        "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj",
+        "packagesPath": "C:\\Users\\Krishan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\maheshikaw.KEELLS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Krishan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://jkcs-projects.pkgs.visualstudio.com/KeellsMobileApp/_packaging/jkit-smart-retail-feed/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj": {
-                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj"
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.contracts\\mystore.ecommerce.contracts.csproj"
               },
-              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
-                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
               }
             }
           }
@@ -229,35 +226,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
+    "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj",
+        "projectUniqueName": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj",
         "projectName": "mystore.ecommerce.dbcontext",
-        "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj",
-        "packagesPath": "C:\\Users\\maheshikaw.KEELLS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\obj\\",
+        "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj",
+        "packagesPath": "C:\\Users\\Krishan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\maheshikaw.KEELLS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Krishan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://jkcs-projects.pkgs.visualstudio.com/KeellsMobileApp/_packaging/jkit-smart-retail-feed/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -313,42 +309,41 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
+    "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj",
+        "projectUniqueName": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj",
         "projectName": "mystore.ecommerce.entities",
-        "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj",
-        "packagesPath": "C:\\Users\\maheshikaw.KEELLS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\obj\\",
+        "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj",
+        "packagesPath": "C:\\Users\\Krishan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\maheshikaw.KEELLS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Krishan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://jkcs-projects.pkgs.visualstudio.com/KeellsMobileApp/_packaging/jkit-smart-retail-feed/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
-                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj"
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj"
               }
             }
           }
@@ -377,35 +372,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj": {
+    "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj",
+        "projectUniqueName": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj",
         "projectName": "mystore.ecommerce.utility",
-        "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj",
-        "packagesPath": "C:\\Users\\maheshikaw.KEELLS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\obj\\",
+        "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\mystore.ecommerce.utility.csproj",
+        "packagesPath": "C:\\Users\\Krishan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.utility\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\maheshikaw.KEELLS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Krishan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://jkcs-projects.pkgs.visualstudio.com/KeellsMobileApp/_packaging/jkit-smart-retail-feed/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -437,51 +431,50 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj": {
+    "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj",
+        "projectUniqueName": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj",
         "projectName": "mystore.ecommerce.web",
-        "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj",
-        "packagesPath": "C:\\Users\\maheshikaw.KEELLS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\obj\\",
+        "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\mystore.ecommerce.web.csproj",
+        "packagesPath": "C:\\Users\\Krishan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\maheshikaw.KEELLS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Krishan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://jkcs-projects.pkgs.visualstudio.com/KeellsMobileApp/_packaging/jkit-smart-retail-feed/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj": {
-                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj"
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.business\\mystore.ecommerce.business.csproj"
               },
-              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj": {
-                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj"
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.data\\mystore.ecommerce.data.csproj"
               },
-              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
-                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj"
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.dbcontext\\mystore.ecommerce.dbcontext.csproj"
               },
-              "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
-                "projectPath": "C:\\Users\\maheshikaw.KEELLS\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
+              "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj": {
+                "projectPath": "C:\\Users\\Krishan\\source\\repos\\Ecommerce\\mystore.ecommerce.entities\\mystore.ecommerce.entities.csproj"
               }
             }
           }
@@ -541,7 +534,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

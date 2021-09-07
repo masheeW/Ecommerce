@@ -118,11 +118,11 @@ namespace mystore.ecommerce.business.managers
                 };
             }
         }
-        public ServiceResponse<IEnumerable<ProductCategory>> GetProductCategories()
+        public async Task<ServiceResponse<IEnumerable<ProductCategory>>> GetProductCategories()
         {
             try
             {
-                var productCategory = _productRepository.GetProductCategories();
+                var productCategory = await _productRepository.GetProductCategoriesAsync();
 
                 return new ServiceResponse<IEnumerable<ProductCategory>>(productCategory);
             }

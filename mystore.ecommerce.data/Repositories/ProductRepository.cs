@@ -97,6 +97,19 @@ namespace mystore.ecommerce.data.Repositories
             }
         }
 
+        public async Task<IEnumerable<ProductCategory>> GetProductCategoriesAsync()
+        {
+            try
+            {
+                return await _context.ProductCategory.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{ex.Message}");
+                return null;
+            }
+        }
+
         public IEnumerable<ProductCategory> GetProductCategories()
         {
             try

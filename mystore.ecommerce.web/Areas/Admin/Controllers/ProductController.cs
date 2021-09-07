@@ -40,51 +40,71 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
             return View(null);
         }
 
-        public virtual ActionResult Add()
+        public virtual async Task<ActionResult> Add()
         {
-            ViewBag.Categories = _productManager.GetProductCategories().Payload;
+            var response = await _productManager.GetProductCategories();
+            ViewBag.Categories = response.Payload;
             return View(new ProductModel());
         }
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public virtual ActionResult Add(ProductModel productModel, IFormFile postedFile)
+        public virtual async Task<ActionResult> Add(ProductModel productModel, IFormFile postedFile)
         {
             try
             {
-                ViewBag.Categories = _productManager.GetProductCategories().Payload;
-                string path = Path.Combine(this.Environment.WebRootPath, "img");
-                if (!Directory.Exists(path))
+                if (ModelState.IsValid)
                 {
-                    Directory.CreateDirectory(path);
-                }
-
-                if (postedFile != null)
-                {
-                    string fileName = Path.GetFileName(postedFile.FileName);
-                    using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                    var response = await _productManager.GetProductCategories();
+                    ViewBag.Categories = response.Payload;
+                    string path = Path.Combine(this.Environment.WebRootPath, "img");
+                    if (!Directory.Exists(path))
                     {
-                        postedFile.CopyTo(stream);
-                        ViewBag.Message = fileName;
+                        Directory.CreateDirectory(path);
                     }
+
+                    if (postedFile != null)
+                    {
+                        string fileName = Path.GetFileName(postedFile.FileName);
+                        using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                        {
+                            postedFile.CopyTo(stream);
+                            ViewBag.Message = fileName;
+                        }
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Please add a product image");
+                        return View(productModel);
+                    }
+
+                    productModel.Id = Guid.NewGuid().ToString();
+                    productModel.ImageName = postedFile.FileName;
+
+                    var savedProduct = _productManager.SaveProduct(productModel);
+                    if (!savedProduct.HasError)
+                    {
+                        TempData["Message"] = "Product successfully added to the system ";
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", savedProduct.ErrorMessage);
+                    }
+
                 }
-
-                productModel.Id = Guid.NewGuid().ToString();
-                productModel.ImageName = postedFile.FileName;
-
-                var savedProduct = _productManager.SaveProduct(productModel);
 
             }
             catch (Exception ex)
             {
+                ModelState.AddModelError("", "Save failed");
                 _logger.LogError(ex.Message);
-                return View(productModel);
             }
-            
-            return View();
+
+            return View(productModel);
         }
 
-        public virtual ActionResult Edit(string id)
+        public virtual async Task<ActionResult> Edit(string id)
         {
             if (!string.IsNullOrEmpty(id))
             {
@@ -92,7 +112,8 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
 
                 if (response != null)
                 {
-                    ViewBag.Categories = _productManager.GetProductCategories().Payload;
+                    var categoryResponse = await _productManager.GetProductCategories();
+                    ViewBag.Categories = categoryResponse.Payload;
 
                     return View(response.Payload);
                 }
@@ -102,10 +123,20 @@ namespace mystore.ecommerce.web.Areas.Admin.Controllers
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public virtual ActionResult Edit(ProductModel productViewModel)
+        public virtual async Task<ActionResult> Edit(ProductModel productViewModel)
         {
-            ViewBag.Categories = _productManager.GetProductCategories().Payload;
-            _productManager.UpdateProduct(productViewModel);
+            var categories = await _productManager.GetProductCategories();
+            ViewBag.Categories = categories.Payload;
+            var response = _productManager.UpdateProduct(productViewModel);
+            if (!response.HasError)
+            {
+                TempData["Message"] = "Product successfully updated";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ModelState.AddModelError("", response.ErrorMessage);
+            }
             return View(productViewModel);
         }
 

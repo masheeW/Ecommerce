@@ -12,11 +12,12 @@ namespace mystore.ecommerce.contracts.Repositories
         Task<IEnumerable<Product>> GetProducts();
         Task<IEnumerable<Product>> GetAllAvailableProducts();
         Task<IEnumerable<Product>> GetAllAvailableProductsBySearch(string categoryId, string text);
-        IEnumerable<ProductCategory> GetProductCategories();
         IEnumerable<Product> GetProductsByCategory(string categpry);
         Product AddProduct(Product product);
         bool SaveAll();
         Product GetProductById(string id);
         Product UpdateProduct(Product productMapper);
+        Task<IEnumerable<ProductCategory>> GetProductCategoriesAsync();
+        IEnumerable<ProductCategory> GetProductCategories();
     }
 }
